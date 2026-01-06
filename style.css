@@ -1,0 +1,332 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Story+Script&display=swap");
+@import url("https://fonts.cdnfonts.com/css/gg-sans-2");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  transform: scale(1.5);
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+  background: #0a0a0a;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 500px;
+  user-select: none;
+}
+.profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 230px;
+  padding: 25px;
+}
+.pfp {
+  width: 100px;
+  height: 100px;
+}
+.imgpfp {
+  position: absolute;
+  width: 100px;
+  border-radius: 50%;
+}
+.imgdec {
+  position: relative;
+  left: -15px;
+  top: -15px;
+  width: 130px;
+}
+.nickname {
+  font-family: "Archivo Black", sans-serif;
+  padding: 20px;
+  font-size: 2.5rem;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+.nickname::after,
+.nickname::before {
+  content: "xhvsh";
+  position: absolute;
+  transition: all 0.3s ease;
+}
+.nickname::after {
+  left: 20px;
+  top: 20px;
+  z-index: -1;
+  color: #ae35ff;
+}
+.nickname:hover::after {
+  left: 17px;
+  top: 18px;
+}
+.nickname::before {
+  right: 20px;
+  bottom: 20px;
+  z-index: -1;
+  color: #2631ff;
+}
+.nickname:hover::before {
+  right: 17px;
+  bottom: 18px;
+}
+
+.media {
+  width: 100%;
+  height: 300px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+}
+.media:hover > .card > .card::after {
+  opacity: 1;
+}
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.card:hover::before {
+  opacity: 1;
+}
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+.card::before {
+  background: radial-gradient(
+    300px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.1),
+    transparent 40%
+  );
+  z-index: 3;
+}
+.card::after {
+  background: radial-gradient(
+    150px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.3),
+    transparent 40%
+  );
+  z-index: 1;
+}
+.content {
+  position: absolute;
+  inset: 1px;
+  background-color: #171717;
+  border-radius: inherit;
+  z-index: 2;
+}
+.imgcontainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: #fff;
+  text-align: center;
+}
+.content img {
+  max-width: 50%;
+  max-height: 50%;
+}
+
+.tooltip {
+  width: 100%;
+  opacity: 0;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 0;
+  bottom: 110%;
+  border: 1px solid #555;
+  font-family: monospace;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -7px;
+  border: 7px solid;
+  border-color: #555 transparent transparent transparent;
+}
+.card:hover .tooltip {
+  opacity: 1;
+}
+
+.col2 {
+  height: 540px;
+  width: 270px;
+}
+.discord {
+  position: relative;
+  width: 270px;
+  height: 230px;
+  background: #232428;
+  border-radius: 10px;
+  font-family: "gg sans Normal", sans-serif;
+  margin-bottom: 20px;
+  user-select: none;
+}
+.banner {
+  background: #000;
+  height: 90px;
+  border-radius: 10px 10px 0 0;
+}
+.discordpfp {
+  width: 70px;
+  position: absolute;
+  border-radius: 50%;
+  left: 30px;
+  top: 50px;
+  outline: 5px solid #28282c;
+}
+.discorddec {
+  width: 90px;
+  position: absolute;
+  top: 40px;
+  left: 20px;
+}
+.status {
+  position: absolute;
+  left: 120px;
+  top: 80px;
+  max-width: 140px;
+  max-height: 50px;
+  background: #2b2c30;
+  border-radius: 13px;
+  border: 1px solid #2f3034;
+  color: #ddd;
+  padding: 5px 10px;
+  font-size: 12px;
+  word-wrap: break-word;
+  z-index: 1;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease;
+  line-height: 20px;
+}
+.status:hover {
+  -webkit-line-clamp: unset;
+  max-height: 200px;
+}
+.displayname {
+  position: absolute;
+  color: #e6e7e9;
+  font-size: 20px;
+  left: 20px;
+  top: 130px;
+  font-family: "gg sans Semibold", sans-serif;
+}
+.copy {
+  position: absolute;
+  top: 130px;
+  left: 80px;
+  height: 20px;
+  cursor: pointer;
+}
+.under {
+  position: absolute;
+  color: #f7f7f7;
+  font-size: 14px;
+  left: 20px;
+  top: 155px;
+  font-family: "gg sans Normal", sans-serif;
+}
+.guild {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  position: absolute;
+  color: #f7f7f7;
+  font-size: 12px;
+  left: 150px;
+  top: 152px;
+  border: 1px solid #343439;
+  padding: 3px 6px;
+  border-radius: 10px;
+}
+.guild img {
+  max-height: 14px;
+}
+.copyid {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 250px;
+  height: 30px;
+  background: #2b2c30;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #ddd;
+  font-size: 14px;
+}
+.id {
+  height: 100%;
+}
+
+.quote {
+  padding: 10px 20px;
+  background: #171717;
+  border-radius: 10px;
+  font-family: "Story Script", sans-serif;
+  font-size: 12px;
+  width: 270px;
+  height: 270px;
+  color: #ddd;
+  border: 1px solid #28282c;
+  text-align: justify;
+}
+.quote div {
+  margin-bottom: 5px;
+}
+
+.hidden {
+  display: none;
+  pointer-events: none;
+}
