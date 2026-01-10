@@ -15,7 +15,7 @@ let socials = [
 for (let i = 0; i < socials.length; i++) {
   document.querySelector(".links").innerHTML += `
     <a class='media' href='https://${socials[i].link}' target='_blank'>
-      <img src='./img/${socials[i].name}.webp' loading="lazy" />
+      <img src='./img/${socials[i].name.toLowerCase()}.webp' loading="lazy" />
       <div class='popup'>${socials[i].name}</div>
     </a>
   `;
