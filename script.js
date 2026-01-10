@@ -21,11 +21,13 @@ for (let i = 0; i < socials.length; i++) {
   `;
 }
 
-document.querySelector('.profile').classList.add('show')
+setTimeout(() => {
+  document.querySelector(".profile").classList.add("show");
 
-const items = document.querySelectorAll('.media')
-items.forEach((e,index) => {
-  setTimeout(() => {
-    e.classList.add('show')
-  }, index * 100 + 100);
-})
+  const items = document.querySelectorAll(".media");
+  items.forEach((e, index) => {
+    setTimeout(() => {
+      e.classList.add("show");
+    }, index * 100 + 100);
+  });
+}, 500);
