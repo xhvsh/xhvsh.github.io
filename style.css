@@ -38,8 +38,9 @@ h1 {
   position: relative;
   font-size: 3rem;
 }
-h1::after, h1::before {
-  content: 'xhvsh';
+h1::after,
+h1::before {
+  content: "xhvsh";
   position: absolute;
   z-index: -1;
   transition: all 0.3s ease;
@@ -60,6 +61,7 @@ h1::before {
   gap: 1rem;
 }
 .media {
+  opacity: 0;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -68,11 +70,11 @@ h1::before {
   padding: 1rem;
   border-radius: 5px;
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
 }
 .media img {
   height: 3rem;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
 }
 .media:hover img {
   filter: drop-shadow(-2px -2px 2px #ae35ff) drop-shadow(2px 2px 2px #2631ff);
@@ -85,7 +87,7 @@ h1::before {
   text-align: center;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease;
 }
 .media:hover .popup {
   opacity: 1;
@@ -102,5 +104,17 @@ h1::before {
     all: unset;
     font-size: 1.8rem;
     font-weight: 900;
+  }
+}
+
+.show {
+  animation: show 2s ease forwards;
+}
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

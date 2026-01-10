@@ -20,3 +20,12 @@ for (let i = 0; i < socials.length; i++) {
     </a>
   `;
 }
+
+document.querySelector('.profile').classList.add('show')
+
+const items = document.querySelectorAll('.media')
+items.forEach((e,index) => {
+  setTimeout(() => {
+    e.classList.add('show')
+  }, index * 100 + 100);
+})
