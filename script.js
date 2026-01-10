@@ -12,22 +12,40 @@ let socials = [
   { name: "NameMC", link: "namemc.com/xhvsh" },
 ];
 
-for (let i = 0; i < socials.length; i++) {
-  document.querySelector(".links").innerHTML += `
-    <a class='media' href='https://${socials[i].link}' target='_blank'>
-      <img src='./img/${socials[i].name.toLowerCase()}.webp' loading="lazy" />
-      <div class='popup'>${socials[i].name}</div>
+const links = document.querySelector(".links");
+socials.forEach((s) => {
+  links.insertAdjacentHTML(
+    "beforeend",
+    `
+    <a class="media" href="https://${s.link}" target="_blank">
+      <img src="./img/${s.name.toLowerCase()}.webp" loading="lazy" />
+      <div class="popup">${s.name}</div>
     </a>
-  `;
-}
+    `
+  );
+});
 
-setTimeout(() => {
-  document.querySelector(".profile").classList.add("show");
+const elements = [document.querySelector(".profile"), ...document.querySelectorAll(".media")];
 
-  const items = document.querySelectorAll(".media");
-  items.forEach((e, index) => {
-    setTimeout(() => {
-      e.classList.add("show");
-    }, index * 100 + 100);
-  });
-}, 500);
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const ratio = entry.intersectionRatio;
+
+      if (ratio > 0) {
+        entry.target.classList.add("show");
+        entry.target.style.opacity = ratio.toFixed(2);
+      } else {
+        entry.target.classList.remove("show");
+        entry.target.style.opacity = 0;
+      }
+    });
+  },
+  {
+    threshold: Array.from({ length: 101 }, (_, i) => i / 100),
+  }
+);
+
+requestAnimationFrame(() => {
+  elements.forEach((el) => observer.observe(el));
+});

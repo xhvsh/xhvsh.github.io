@@ -69,7 +69,6 @@ h1::before {
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  border-radius: 5px;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -108,14 +107,13 @@ h1::before {
   }
 }
 
-.show {
-  animation: show 2s ease forwards;
+.profile,
+.media {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s linear, transform 0.4s ease;
+  will-change: opacity, transform;
 }
-@keyframes show {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.show {
+  transform: translateY(0);
 }
