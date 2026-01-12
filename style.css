@@ -1,5 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300..800&display=swap");
 
+/* hover color variables */
+:root {
+  --discord-light: #7289da;
+  --discord-dark: #313aa0;
+
+  --spotify-light: #1ed760;
+  --spotify-dark: #186132;
+
+  --youtube-light: #ff0000;
+  --youtube-dark: #580909;
+
+  --twitch-light: #7e27ff;
+  --twitch-dark: #5621a5;
+
+  --telegram-light: #4bb5e5;
+  --telegram-dark: #16678f;
+
+  --github-light: #8b9096;
+  --github-dark: #323a44;
+
+  --steam-light: #5f92b6;
+  --steam-dark: #0b385f;
+
+  --instagram-light: #662e91;
+  --instagram-extra: #f1455b;
+  --instagram-dark: #fef262;
+
+  --medal-light: #c7b922;
+  --medal-dark: #645917;
+
+  --tiktok-light: #20f1f0;
+  --tiktok-extra: #9c6bef;
+  --tiktok-dark: #f92b57;
+
+  --namemc-light: #999999;
+  --namemc-dark: #525252;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +54,29 @@ body {
   display: grid;
   place-items: center;
 }
+
+.trailer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #fff, #fff);
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.1s ease;
+  will-change: opacity, transform, background;
+}
+body:hover .trailer {
+  opacity: 1;
+}
+.hovering {
+  width: 70px;
+  height: 70px;
+}
+
 .container {
   display: grid;
   gap: 2rem;
@@ -27,6 +88,9 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  transform: translateY(20px);
+  transition: opacity 0.3s linear, transform 0.4s ease;
+  will-change: opacity, transform;
 }
 .profile img {
   position: relative;
@@ -67,17 +131,24 @@ h1::before {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   padding: 1rem;
   text-decoration: none;
   transition: all 0.3s ease;
+  z-index: 2;
+  transform: translateY(20px);
+  transition: opacity 0.3s linear, transform 0.4s ease;
+  will-change: opacity, transform;
 }
 .media img {
   height: 3rem;
   transition: all 0.3s ease;
+  filter: drop-shadow(3px 3px 0 #000);
 }
-.media:hover img {
-  filter: drop-shadow(-2px -2px 2px #ae35ff) drop-shadow(2px 2px 2px #2631ff);
+a[href="https://namemc.com/xhvsh"] img
+{
+  height: 2.5rem;
 }
 .popup {
   width: 100%;
@@ -94,8 +165,24 @@ h1::before {
 }
 
 @media (max-width: 420px) {
+  .trailer {
+    all: unset;
+    display: none;
+  }
   .links {
     grid-template-columns: 1fr;
+  }
+  .container {
+    width: clamp(240px, 90%, 100%);
+  }
+  .media {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+  }
+  .media img {
+    filter: drop-shadow(0 0);
   }
   .media:hover img {
     filter: drop-shadow(0 0);
@@ -107,13 +194,6 @@ h1::before {
   }
 }
 
-.profile,
-.media {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.3s linear, transform 0.4s ease;
-  will-change: opacity, transform;
-}
 .show {
   transform: translateY(0);
 }
