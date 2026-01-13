@@ -2,40 +2,40 @@
 
 /* hover color variables */
 :root {
-  --discord-light: #7289da;
-  --discord-dark: #313aa0;
+  --discord-light: #5c6bc0;
+  --discord-dark: #2f3763;
 
-  --spotify-light: #1ed760;
-  --spotify-dark: #186132;
+  --instagram-light: #8a49a1;
+  --instagram-extra: #e56969;
+  --instagram-dark: #ffc273;
 
-  --youtube-light: #ff0000;
-  --youtube-dark: #580909;
+  --medal-light: #090b04;
+  --medal-dark: #424440;
 
-  --twitch-light: #7e27ff;
-  --twitch-dark: #5621a5;
+  --youtube-light: #c02127;
+  --youtube-dark: #751316;
 
-  --telegram-light: #4bb5e5;
-  --telegram-dark: #184f6b;
+  --twitch-light: #6558d8;
+  --twitch-dark: #371364;
 
-  --github-light: #8b9096;
-  --github-dark: #323a44;
+  --github-light: #7a7a7a;
+  --github-dark: #303030;
 
-  --steam-light: #5f92b6;
-  --steam-dark: #0b385f;
+  --telegram-light: #00aaf2;
+  --telegram-dark: #00457a;
 
-  --instagram-light: #8617db;
-  --instagram-extra: #cf3146;
-  --instagram-dark: #8b8436;
+  --steam-light: #111d2e;
+  --steam-dark: #1387b8;
 
-  --medal-light: #c7b922;
-  --medal-dark: #645917;
+  --spotify-light: #1ed860;
+  --spotify-dark: #065520;
 
-  --tiktok-light: #20f1f0;
-  --tiktok-extra: #6b47aa;
-  --tiktok-dark: #791e32;
+  --tiktok-light: #01f2e9;
+  --tiktok-extra: #83769a;
+  --tiktok-dark: #fe004d;
 
-  --namemc-light: #999999;
-  --namemc-dark: #525252;
+  --namemc-light: #181818;
+  --namemc-dark: #111111;
 }
 
 * {
@@ -180,9 +180,11 @@ a[href="https://namemc.com/xhvsh"] img
     display: flex;
     flex-direction: row;
     justify-content: start;
+    overflow: hidden;
   }
   .media img {
     filter: drop-shadow(0 0);
+    z-index: 3;
   }
   .media:hover img {
     filter: drop-shadow(0 0);
