@@ -113,11 +113,16 @@ function updateTrailer() {
     const dx = mouseX - cx;
     const dy = mouseY - cy;
 
-    const len = Math.hypot(dx, dy) || 1;
+    const distance = Math.hypot(dx, dy);
 
-    const offset = 4; // distance from center
-    const ox = (dx / len) * offset;
-    const oy = (dy / len) * offset;
+    const maxDistance = Math.hypot(rect.width, rect.height) / 2;
+    const ratio = Math.min(distance / maxDistance, 1);
+
+    const maxOffset = 4;
+    const offset = ratio * maxOffset;
+
+    const ox = (dx / (distance || 1)) * offset;
+    const oy = (dy / (distance || 1)) * offset;
 
     x = cx + ox - trailer.offsetWidth / 2;
     y = cy + oy - trailer.offsetHeight / 2;
@@ -130,7 +135,7 @@ function updateTrailer() {
     trailer.classList.remove("hovering");
   }
 
-  trailer.style.transform = `translate(${x}px, ${y}px)`;
+  trailer.style.transform = `translate3d(${x}px, ${y}px, 0)`;
   requestAnimationFrame(updateTrailer);
 }
 
