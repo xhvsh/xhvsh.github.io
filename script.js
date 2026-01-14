@@ -24,6 +24,7 @@ socials.forEach((s) => {
     <a class="media" href="https://${s.link}" target="_blank" data-light="${lightVar}" data-dark="${darkVar}" ${extraVar ? `data-extra="${extraVar}"` : ""}}>
       <img src="./img/${s.name.toLowerCase()}.webp" loading="lazy" />
       <div class="popup">${s.name}</div>
+      <img class="arrow" src="./img/arrow.webp" loading="lazy" />
     </a>
     `
   );

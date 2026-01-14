@@ -34,8 +34,8 @@
   --tiktok-extra: #83769a;
   --tiktok-dark: #fe004d;
 
-  --namemc-light: #181818;
-  --namemc-dark: #111111;
+  --namemc-light: #2c2c2c;
+  --namemc-dark: #272727;
 }
 
 * {
@@ -150,6 +150,9 @@ a[href="https://namemc.com/xhvsh"] img
 {
   height: 2.5rem;
 }
+.arrow {
+  display: none;
+}
 .popup {
   width: 100%;
   position: absolute;
@@ -186,13 +189,28 @@ a[href="https://namemc.com/xhvsh"] img
     filter: drop-shadow(0 0);
     z-index: 3;
   }
+  a[href="https://namemc.com/xhvsh"] img
+  {
+    height: 3rem;
+  }
   .media:hover img {
     filter: drop-shadow(0 0);
+  }
+  .arrow {
+    position: absolute;
+    right: 1rem;
+    display: block;
+    fill: #fff;
   }
   .popup {
     all: unset;
     font-size: 1.8rem;
     font-weight: 900;
+  }
+}
+@media (max-width: 320px) {
+  .arrow {
+    display: none;
   }
 }
 
