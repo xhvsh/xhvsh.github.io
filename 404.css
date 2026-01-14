@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  height: 100dvh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Kode Mono", monospace;
+  color: #fff;
+}
+.container {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.columns {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  font-size: clamp(4rem, 40vw, 12rem);
+  overflow: hidden;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  font-size: inherit;
+  height: 1em;
+  transition: all 3s cubic-bezier(0, 1.15, 1, 1);
+  transform: translateY(0);
+  opacity: 0;
+}
+.column span {
+  display: block;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 1s ease;
+  height: clamp(4rem, 40vw, 12rem);
+  line-height: 1em;
+  text-shadow: -5px -4px #ae35ff, 5px 4px #2631ff;
+}
+
+h2 {
+  position: relative;
+  font-size: clamp(1rem, 10vw, 3rem);
+  line-height: 100%;
+  margin-bottom: 2rem;
+}
+h2 span {
+  opacity: 0;
+  position: relative;
+  display: inline-block;
+  animation: appear 1s ease forwards;
+  text-shadow: -2px -3px #ae35ff, 2px 3px #2631ff;
+}
+h2 span:nth-child(1) {
+  animation-delay: 0.3s;
+}
+h2 span:nth-child(2) {
+  animation-delay: 0.6s;
+}
+h2 span:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+a {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  font-family: sans-serif;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  text-wrap: nowrap;
+  position: relative;
+  color: transparent;
+  background: linear-gradient(135deg, #ae35ff, #2631ff);
+  background-clip: text;
+  line-height: 2rem;
+  font-weight: 900;
+  transition: all 0.3s ease;
+
+  opacity: 0;
+  animation: appear 1s ease forwards;
+  animation-delay: 1s;
+}
+a span {
+  color: transparent;
+}
+a:hover {
+  gap: 5px;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes col1 {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

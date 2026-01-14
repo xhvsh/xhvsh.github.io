@@ -102,23 +102,7 @@ body:hover .trailer {
 h1 {
   position: relative;
   font-size: 3rem;
-}
-h1::after,
-h1::before {
-  content: "xhvsh";
-  position: absolute;
-  z-index: -1;
-  transition: all 0.3s ease;
-}
-h1::after {
-  color: #ae35ff;
-  left: -3px;
-  top: -2px;
-}
-h1::before {
-  color: #2631ff;
-  right: -3px;
-  bottom: -2px;
+  text-shadow: -3px -2px #ae35ff, 3px 2px #2631ff;
 }
 .links {
   display: grid;
