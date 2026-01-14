@@ -83,6 +83,7 @@ a {
   color: transparent;
   background: linear-gradient(135deg, #ae35ff, #2631ff);
   background-clip: text;
+  -webkit-background-clip: text;
   line-height: 2rem;
   font-weight: 900;
   transition: all 0.3s ease;
