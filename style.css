@@ -144,7 +144,6 @@ h1::before {
 .media img {
   height: 3rem;
   transition: all 0.3s ease;
-  filter: drop-shadow(3px 3px 0 #000);
 }
 a[href="https://namemc.com/xhvsh"] img
 {
@@ -186,15 +185,11 @@ a[href="https://namemc.com/xhvsh"] img
     overflow: hidden;
   }
   .media img {
-    filter: drop-shadow(0 0);
     z-index: 3;
   }
   a[href="https://namemc.com/xhvsh"] img
   {
     height: 3rem;
-  }
-  .media:hover img {
-    filter: drop-shadow(0 0);
   }
   .arrow {
     position: absolute;
