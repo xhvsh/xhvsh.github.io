@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    { "source": "/vs", "destination": "/valorant-shop", "permanent": false },
+    { "source": "/vs/:path*", "destination": "/valorant-shop/:path*", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/valorant-shop", "destination": "https://valorant-shop.vercel.app/valorant-shop" },
+    { "source": "/valorant-shop/", "destination": "https://valorant-shop.vercel.app/valorant-shop" },
+    { "source": "/valorant-shop/:path*", "destination": "https://valorant-shop.vercel.app/valorant-shop/:path*" }
+  ]
+}
