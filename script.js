@@ -3,7 +3,7 @@ let socials = [
   { name: "Instagram", link: "instagram.com/xxhvsh" },
   { name: "Medal", link: "medal.tv/u/xhvsh" },
   { name: "YouTube", link: "youtube.com/@xhvsh" },
-  { name: "Twitch", link: "twitch.tv/xhvsh_/about" },
+  { name: "Twitch", link: "twitch.tv/xhvsh_" },
   { name: "GitHub", link: "github.com/xhvsh" },
   { name: "Telegram", link: "t.me/xxhvsh" },
   { name: "Steam", link: "steamcommunity.com/id/xhvsh" },
