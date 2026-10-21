@@ -7,16 +7,35 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
 
 const clockEl = document.getElementById("clock");
 if (clockEl) {
-  const tick = () => {
-    clockEl.textContent = new Date().toLocaleTimeString("en-GB", {
+  const clockSpans = [];
+  for (let i = 0; i < 8; i++) clockSpans.push(clockEl.appendChild(document.createElement("span")));
+
+  const timeChars = () =>
+    new Date().toLocaleTimeString("en-GB", {
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
       hour12: false,
+    }).split("");
+
+  const setTime = (chars, animate) => {
+    chars.forEach((ch, i) => {
+      if (clockSpans[i].textContent === ch) return;
+      clockSpans[i].textContent = ch;
+      if (animate && !reducedMotion) {
+        clockSpans[i].animate(
+          [
+            { transform: "translateY(0.32em)", opacity: 0.25 },
+            { transform: "translateY(0)", opacity: 1 },
+          ],
+          { duration: 320, easing: "cubic-bezier(0.33, 1, 0.68, 1)" },
+        );
+      }
     });
   };
-  tick();
-  setInterval(tick, 1000);
+
+  setTime(timeChars(), false);
+  setInterval(() => setTime(timeChars(), true), 1000);
 }
 
 document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach((link) => {

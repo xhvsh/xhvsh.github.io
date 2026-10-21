@@ -126,10 +126,15 @@ main {
 }
 
 .clock {
+  display: inline-flex;
   color: var(--text-faint);
   font-size: 0.78rem;
   letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums;
+}
+
+.clock span {
+  display: block;
 }
 
 .missing {
