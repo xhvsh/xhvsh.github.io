@@ -125,50 +125,6 @@ main {
   object-fit: contain;
 }
 
-.site-nav {
-  display: flex;
-  align-items: center;
-  gap: 1.15rem;
-}
-
-.site-nav a {
-  position: relative;
-  display: inline-block;
-  padding: 0.4rem 0.15rem;
-  color: var(--text-dim);
-  font-size: 0.92rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s var(--ease);
-}
-
-.site-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0.1rem;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--accent-grad);
-  opacity: 0;
-  scale: 0.55;
-  transition: opacity 0.3s var(--ease), scale 0.3s var(--ease);
-}
-
-.site-nav a:hover,
-.site-nav a:focus-visible,
-.site-nav a[aria-current] {
-  color: var(--text);
-}
-
-.site-nav a:hover::after,
-.site-nav a:focus-visible::after,
-.site-nav a[aria-current]::after {
-  opacity: 1;
-  scale: 1;
-}
-
 .missing {
   display: grid;
   justify-items: center;
@@ -496,10 +452,6 @@ h1::after {
 @media (max-width: 560px) {
   .wrap {
     width: min(100% - 1.75rem, var(--wrap));
-  }
-
-  .site-nav {
-    gap: 0.95rem;
   }
 
   .footer-inner {
