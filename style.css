@@ -852,6 +852,14 @@ html.js .reveal.is-visible {
     padding: 1rem 0.35rem 0.85rem;
   }
 
+  .media::before {
+    opacity: 0.88;
+  }
+
+  .media-name {
+    color: #fff;
+  }
+
   .footer-inner {
     justify-content: center;
     text-align: center;
