@@ -49,7 +49,7 @@ function spin() {
     }, 80 + index * 280);
   });
 
-  glitchTimer = setTimeout(() => slot.classList.add("glitch-on"), 2800);
+  glitchTimer = setTimeout(() => slot.classList.add("glitch-on"), 3800);
 }
 
 respin.addEventListener("click", spin);
