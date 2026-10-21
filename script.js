@@ -5,6 +5,20 @@ document.querySelectorAll(".js-year").forEach((el) => {
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+const clockEl = document.getElementById("clock");
+if (clockEl) {
+  const tick = () => {
+    clockEl.textContent = new Date().toLocaleTimeString("en-GB", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
+  };
+  tick();
+  setInterval(tick, 1000);
+}
+
 document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach((link) => {
   link.addEventListener("click", (event) => {
     const target = document.querySelector(link.getAttribute("href"));

@@ -125,6 +125,13 @@ main {
   object-fit: contain;
 }
 
+.clock {
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
 .missing {
   display: grid;
   justify-items: center;

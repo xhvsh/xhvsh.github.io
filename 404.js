@@ -4,9 +4,21 @@ const columns = [...document.querySelectorAll(".column")];
 const pathEl = document.getElementById("path");
 const yearEl = document.getElementById("year");
 const respin = document.getElementById("respin");
+const clockEl = document.getElementById("clock");
 
 pathEl.textContent = location.pathname === "/" ? "/lost-page/" : location.pathname;
 yearEl.textContent = new Date().getFullYear();
+
+const tick = () => {
+  clockEl.textContent = new Date().toLocaleTimeString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
+};
+tick();
+setInterval(tick, 1000);
 
 function spin() {
   columns.forEach((column, index) => {
