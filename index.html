@@ -24,7 +24,7 @@
       href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300..800&family=JetBrains+Mono:wght@400;500&display=swap"
     />
 
-    <script src="https://kit.fontawesome.com/384138011e.js" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/384138011e.js" crossorigin="anonymous"></script>
     <script>
       document.documentElement.classList.replace("no-js", "js");
     </script>
@@ -73,7 +73,79 @@
           <h2>Projects</h2>
           <p class="section-note">Things I build and keep online.</p>
         </div>
-        <div class="project-grid" id="project-grid"></div>
+        <div class="project-grid">
+          <article class="project reveal">
+            <div class="project-head">
+              <span class="project-icon">
+                <img src="https://xhv.sh/valorant-shop/logo.png" alt="" aria-hidden="true" loading="lazy" />
+              </span>
+            </div>
+            <h3 class="project-title">Valorant Shop</h3>
+            <p class="project-desc">
+              Discord app for your daily shop. Link a Riot account, see every shop in one place and get DM
+              alerts for the night market, new bundles and wishlisted items.
+            </p>
+            <div class="project-meta">
+              <span class="status"><span class="status-dot" aria-hidden="true"></span>Live</span>
+              <span class="tags"><span class="tag">Discord app</span><span class="tag">Valorant</span></span>
+            </div>
+            <div class="project-actions">
+              <a class="project-link" href="https://xhv.sh/valorant-shop" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span>Website</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-head">
+              <span class="project-icon">
+                <img src="https://miaucraft.vercel.app/img/icon.webp" alt="" aria-hidden="true" loading="lazy" />
+              </span>
+            </div>
+            <h3 class="project-title">Miaucraft</h3>
+            <p class="project-desc">
+              Live map and team hub for the private SMP: shared waypoints with screenshots, chat, leaderboards
+              and admin tools. The self-updating Miaucraft Bridge plugin connects the server and the site
+              through a database, streaming positions and rendered map regions in real time.
+            </p>
+            <div class="project-meta">
+              <span class="status"><span class="status-dot" aria-hidden="true"></span>Live</span>
+              <span class="tags"><span class="tag">Minecraft</span><span class="tag">Live map</span></span>
+            </div>
+            <div class="project-actions">
+              <a class="project-link" href="https://miaucraft.vercel.app" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span>Website</span>
+              </a>
+              <a class="project-link" href="https://github.com/xhvsh/miaucraft" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i><span>Repo</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div class="project-head">
+              <span class="project-icon"><i class="fa-solid fa-cookie-bite" aria-hidden="true"></i></span>
+            </div>
+            <h3 class="project-title">xhClicker</h3>
+            <p class="project-desc">
+              Autoclicker mod for Cookie Clicker with a floating panel: auto cookie, golden and wrath cookies,
+              reindeer, fortune ticker and auto buy buildings. Subscribe on Steam Workshop or load it straight
+              from the repo.
+            </p>
+            <div class="project-meta">
+              <span class="status"><span class="status-dot" aria-hidden="true"></span>Open source</span>
+              <span class="tags"><span class="tag">Cookie Clicker</span><span class="tag">Mod</span></span>
+            </div>
+            <div class="project-actions">
+              <a class="project-link" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3738413378" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-steam" aria-hidden="true"></i><span>Workshop</span>
+              </a>
+              <a class="project-link" href="https://github.com/xhvsh/xhclicker" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i><span>Repo</span>
+              </a>
+            </div>
+          </article>
+        </div>
       </section>
 
       <section class="section" id="socials">
@@ -82,7 +154,56 @@
           <h2>Socials</h2>
           <p class="section-note">Everywhere else to find me.</p>
         </div>
-        <div class="links" id="links-grid"></div>
+        <div class="links">
+          <a class="media reveal" href="https://discord.com/users/1301345826143997954" target="_blank" rel="noopener noreferrer" aria-label="Discord" style="--media-bg: linear-gradient(135deg, var(--discord-light) 0%, var(--discord-dark) 100%);">
+            <img src="./img/discord.webp" alt="" aria-hidden="true" loading="lazy" />
+            <span class="media-name">Discord</span>
+          </a>
+          <a class="media reveal" href="https://instagram.com/xxhvsh" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="--media-bg: linear-gradient(135deg, var(--instagram-light) 0%, var(--instagram-extra) 50%, var(--instagram-dark) 100%);">
+            <img src="./img/instagram.webp" alt="" aria-hidden="true" loading="lazy" />
+            <span class="media-name">Instagram</span>
+          </a>
+          <a class="media reveal" href="https://medal.tv/u/xhvsh" target="_blank" rel="noopener noreferrer" aria-label="Medal" style="--media-bg: linear-gradient(135deg, var(--medal-light) 0%, var(--medal-dark) 100%);">
+            <img src="./img/medal.webp" alt="" aria-hidden="true" loading="lazy" />
+            <span class="media-name">Medal</span>
+          </a>
+          <a class="media reveal" href="https://youtube.com/@xhvsh" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="--media-bg: linear-gradient(135deg, var(--youtube-light) 0%, var(--youtube-dark) 100%);">
+            <img src="./img/youtube.webp" alt="" aria-hidden="true" loading="lazy" />
+            <span class="media-name">YouTube</span>
+          </a>
+          <a class="media reveal" href="https://twitch.tv/xhvsh_" target="_blank" rel="noopener noreferrer" aria-label="Twitch" style="--media-bg: linear-gradient(135deg, var(--twitch-light) 0%, var(--twitch-dark) 100%);">
+            <img src="./img/twitch.webp" alt="" aria-hidden="true" loading="lazy" />
+            <span class="media-name">Twitch</span>
+          </a>
+          <a class="media reveal" href="https://github.com/xhvsh" target="_blank" rel="noopener noreferrer" aria-label="GitHub" style="--media-bg: linear-gradient(135deg, var(--github-light) 0%, var(--github-dark) 100%);">
+            <img src="./img/github.webp" alt="" aria-hidden="true" loading="lazy" />
+            <span class="media-name">GitHub</span>
+          </a>
+          <a class="media reveal" href="https://t.me/xxhvsh" target="_blank" rel="noopener noreferrer" aria-label="Telegram" style="--media-bg: linear-gradient(135deg, var(--telegram-light) 0%, var(--telegram-dark) 100%);">
+            <img src="./img/telegram.webp" alt="" aria-hidden="true" loading="lazy" />
+            <span class="media-name">Telegram</span>
+          </a>
+          <a class="media reveal" href="https://steamcommunity.com/id/xhvsh" target="_blank" rel="noopener noreferrer" aria-label="Steam" style="--media-bg: linear-gradient(135deg, var(--steam-light) 0%, var(--steam-dark) 100%);">
+            <img src="./img/steam.webp" alt="" aria-hidden="true" loading="lazy" />
+            <span class="media-name">Steam</span>
+          </a>
+          <a class="media reveal" href="https://open.spotify.com/user/31eexkmyghhfiomdqy7ejvuchkqa" target="_blank" rel="noopener noreferrer" aria-label="Spotify" style="--media-bg: linear-gradient(135deg, var(--spotify-light) 0%, var(--spotify-dark) 100%);">
+            <img src="./img/spotify.webp" alt="" aria-hidden="true" loading="lazy" />
+            <span class="media-name">Spotify</span>
+          </a>
+          <a class="media reveal" href="https://tiktok.com/@xhvsh_" target="_blank" rel="noopener noreferrer" aria-label="TikTok" style="--media-bg: linear-gradient(120deg, rgba(0, 242, 234, 0.95) 0%, rgba(0, 242, 234, 0.3) 30%, rgba(0, 0, 0, 0) 55%, rgba(254, 44, 85, 0.3) 72%, rgba(254, 44, 85, 0.95) 100%), linear-gradient(#0d0d11, #0d0d11);">
+            <img src="./img/tiktok.webp" alt="" aria-hidden="true" loading="lazy" />
+            <span class="media-name">TikTok</span>
+          </a>
+          <a class="media reveal" href="https://namemc.com/xhvsh" target="_blank" rel="noopener noreferrer" aria-label="NameMC" style="--media-bg: linear-gradient(135deg, var(--namemc-light) 0%, var(--namemc-dark) 100%);">
+            <img src="./img/namemc.webp" alt="" aria-hidden="true" loading="lazy" />
+            <span class="media-name">NameMC</span>
+          </a>
+          <a class="media reveal" href="https://modrinth.com/user/xhvsh" target="_blank" rel="noopener noreferrer" aria-label="Modrinth" style="--media-bg: linear-gradient(135deg, var(--modrinth-light) 0%, var(--modrinth-dark) 100%);">
+            <img src="./img/modrinth.webp" alt="" aria-hidden="true" loading="lazy" />
+            <span class="media-name">Modrinth</span>
+          </a>
+        </div>
       </section>
     </main>
 

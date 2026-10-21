@@ -393,32 +393,23 @@ main {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--panel);
-  text-decoration: none;
   transition: transform 0.3s var(--ease), border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.project:hover,
-.project:focus-visible {
+.project:hover {
   transform: translateY(-3px);
   border-color: rgba(255, 255, 255, 0.22);
   background: var(--panel-hover);
 }
 
-.project:hover .project-icon,
-.project:focus-visible .project-icon {
+.project:hover .project-icon {
   border-color: rgba(255, 255, 255, 0.24);
   background: rgba(255, 255, 255, 0.08);
-}
-
-.project:focus-visible {
-  outline: 2px solid rgba(174, 53, 255, 0.55);
-  outline-offset: 2px;
 }
 
 .project-head {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
   gap: 0.75rem;
   margin-bottom: 0.35rem;
 }
@@ -443,16 +434,42 @@ main {
   object-fit: cover;
 }
 
-.project-arrow {
-  color: var(--text-faint);
-  font-size: 0.82rem;
-  transition: color 0.2s ease, transform 0.2s ease;
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.8rem;
 }
 
-.project:hover .project-arrow,
-.project:focus-visible .project-arrow {
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.38rem 0.72rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease),
+    background-color 0.25s var(--ease);
+}
+
+.project-link i {
+  font-size: 0.72rem;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
   color: var(--text);
-  transform: translate(2px, -2px);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.project-link:focus-visible {
+  outline: 2px solid rgba(174, 53, 255, 0.55);
+  outline-offset: 2px;
 }
 
 .project-title {
@@ -633,7 +650,7 @@ html.js .reveal {
   transition:
     opacity 0.55s ease,
     translate 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 0.25s ease,
+    transform 0.3s var(--ease),
     border-color 0.2s ease,
     background-color 0.2s ease,
     background-image 0.2s ease;
