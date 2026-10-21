@@ -127,11 +127,22 @@ main {
 
 .clock {
   display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
   line-height: 1;
   color: var(--text-faint);
   font-size: 0.78rem;
   letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums;
+}
+
+.clock .clock-side {
+  display: block;
+  white-space: nowrap;
+}
+
+.clock .digit-strip {
+  display: inline-flex;
 }
 
 .clock .digit-slot {

@@ -7,9 +7,18 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
 
 const clockEl = document.getElementById("clock");
 if (clockEl) {
+  const pre = clockEl.appendChild(document.createElement("span"));
+  pre.className = "clock-side";
+  pre.textContent = "it's";
+  const strip = clockEl.appendChild(document.createElement("span"));
+  strip.className = "digit-strip";
+  const post = clockEl.appendChild(document.createElement("span"));
+  post.className = "clock-side";
+  post.textContent = "for me";
+
   const digits = [];
   for (let i = 0; i < 8; i++) {
-    const slot = clockEl.appendChild(document.createElement("span"));
+    const slot = strip.appendChild(document.createElement("span"));
     slot.className = "digit-slot";
     const reel = document.createElement("span");
     reel.className = "digit-reel";
@@ -26,6 +35,7 @@ if (clockEl) {
       minute: "2-digit",
       second: "2-digit",
       hour12: false,
+      timeZone: "Europe/Warsaw",
     }).split("");
 
   const setDigit = (d, ch, animate) => {
