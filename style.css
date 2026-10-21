@@ -164,14 +164,27 @@ main {
 
 .clock {
   display: inline-flex;
+  line-height: 1;
   color: var(--text-faint);
   font-size: 0.78rem;
   letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums;
 }
 
-.clock span {
+.clock .digit-slot {
   display: block;
+  position: relative;
+  height: 1em;
+  overflow: hidden;
+}
+
+.clock .digit-reel {
+  display: block;
+}
+
+.clock .digit-reel span {
+  display: block;
+  height: 1em;
 }
 
 .hero {

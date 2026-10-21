@@ -14,8 +14,18 @@ yearEl.textContent = new Date().getFullYear();
 const reducedClock = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if (clockEl) {
-  const clockSpans = [];
-  for (let i = 0; i < 8; i++) clockSpans.push(clockEl.appendChild(document.createElement("span")));
+  const digits = [];
+  for (let i = 0; i < 8; i++) {
+    const slot = clockEl.appendChild(document.createElement("span"));
+    slot.className = "digit-slot";
+    const reel = document.createElement("span");
+    reel.className = "digit-reel";
+    const cur = document.createElement("span");
+    const next = document.createElement("span");
+    reel.append(cur, next);
+    slot.append(reel);
+    digits.push({ cur, next, reel, anim: null });
+  }
 
   const timeChars = () =>
     new Date().toLocaleTimeString("en-GB", {
@@ -25,24 +35,32 @@ if (clockEl) {
       hour12: false,
     }).split("");
 
-  const setTime = (chars, animate) => {
-    chars.forEach((ch, i) => {
-      if (clockSpans[i].textContent === ch) return;
-      clockSpans[i].textContent = ch;
-      if (animate && !reducedClock) {
-        clockSpans[i].animate(
-          [
-            { transform: "translateY(0.32em)", opacity: 0.25 },
-            { transform: "translateY(0)", opacity: 1 },
-          ],
-          { duration: 320, easing: "cubic-bezier(0.33, 1, 0.68, 1)" },
-        );
-      }
-    });
+  const setDigit = (d, ch, animate) => {
+    if (d.cur.textContent === ch) return;
+    if (d.anim) d.anim.finish();
+    if (animate && !reducedClock) {
+      d.next.textContent = ch;
+      d.anim = d.reel.animate(
+        [{ transform: "translateY(0)" }, { transform: "translateY(-1em)" }],
+        { duration: 340, easing: "cubic-bezier(0.33, 1, 0.68, 1)" },
+      );
+      d.anim.onfinish = () => {
+        d.cur.textContent = d.next.textContent;
+        d.next.textContent = "";
+        d.anim = null;
+      };
+    } else {
+      d.cur.textContent = ch;
+    }
   };
 
-  setTime(timeChars(), false);
-  setInterval(() => setTime(timeChars(), true), 1000);
+  const setTime = (animate) => {
+    const chars = timeChars();
+    chars.forEach((ch, i) => setDigit(digits[i], ch, animate));
+  };
+
+  setTime(false);
+  setInterval(() => setTime(true), 1000);
 }
 
 function spin() {
