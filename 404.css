@@ -184,6 +184,55 @@ main {
   display: none;
 }
 
+.glitch-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.3rem, 1vw, 0.45rem);
+  background: #000000;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.glitch-layer span {
+  display: block;
+  width: 0.68em;
+  height: 1em;
+  line-height: 1;
+  text-align: center;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.slot.glitch-on .glitch-layer {
+  opacity: 1;
+}
+
+.slot.glitch-on .layer-a {
+  translate: 3px 0;
+  animation: glitch-animation-1 2.6s linear infinite alternate-reverse;
+}
+
+.slot.glitch-on .layer-a span {
+  text-shadow: -2px 0 var(--accent-1);
+}
+
+.slot.glitch-on .layer-b {
+  translate: -3px 0;
+  animation: glitch-animation-2 2.6s linear infinite alternate-reverse;
+}
+
+.slot.glitch-on .layer-b span {
+  text-shadow: -2px 0 var(--accent-2);
+}
+
+html:not(.js) .glitch-layer {
+  display: none;
+}
+
 html:not(.js) .column {
   display: none;
 }
@@ -478,7 +527,8 @@ h1::after {
   }
 
   h1::before,
-  h1::after {
+  h1::after,
+  .glitch-layer {
     display: none;
   }
 }

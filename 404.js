@@ -1,10 +1,12 @@
 document.documentElement.classList.add("js");
 
 const columns = [...document.querySelectorAll(".column")];
+const slot = document.querySelector(".slot");
 const pathEl = document.getElementById("path");
 const yearEl = document.getElementById("year");
 const respin = document.getElementById("respin");
 const clockEl = document.getElementById("clock");
+let glitchTimer = 0;
 
 pathEl.textContent = location.pathname === "/" ? "/lost-page/" : location.pathname;
 yearEl.textContent = new Date().getFullYear();
@@ -21,6 +23,8 @@ tick();
 setInterval(tick, 1000);
 
 function spin() {
+  clearTimeout(glitchTimer);
+  slot.classList.remove("glitch-on");
   columns.forEach((column, index) => {
     const count = Number(column.dataset.count);
     const show = count - 1;
@@ -44,6 +48,8 @@ function spin() {
       column.style.transform = `translateY(calc(-${show} * 1em))`;
     }, 80 + index * 280);
   });
+
+  glitchTimer = setTimeout(() => slot.classList.add("glitch-on"), 2800);
 }
 
 respin.addEventListener("click", spin);
