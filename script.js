@@ -2,7 +2,7 @@ const projects = [
   {
     title: "Valorant Shop",
     url: "https://xhv.sh/valorant-shop",
-    icon: '<i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>',
+    icon: '<img src="https://xhv.sh/valorant-shop/logo.png" alt="" aria-hidden="true" loading="lazy" />',
     status: "Live",
     description:
       "Discord app for your daily shop. Link a Riot account, see every shop in one place and get DM alerts for the night market, new bundles and wishlisted items.",
@@ -11,7 +11,7 @@ const projects = [
   {
     title: "Miaucraft",
     url: "https://miaucraft.vercel.app",
-    icon: '<i class="fa-solid fa-map" aria-hidden="true"></i>',
+    icon: '<img src="https://miaucraft.vercel.app/img/icon.webp" alt="" aria-hidden="true" loading="lazy" />',
     status: "Live",
     description:
       "Live map and waypoint tool for the Miaucraft Minecraft server, with shared waypoints, screenshots and team access.",
