@@ -408,11 +408,33 @@ main {
 }
 
 .project-head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-bottom: 0.35rem;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  grid-template-areas:
+    "icon title status"
+    "icon tags tags";
+  column-gap: 0.8rem;
+  row-gap: 0.45rem;
+  align-items: center;
+  margin-bottom: 0.3rem;
+}
+
+.project-head .project-icon {
+  grid-area: icon;
+}
+
+.project-head .project-title {
+  grid-area: title;
+}
+
+.project-head .tags {
+  grid-area: tags;
+}
+
+.project-head .status {
+  grid-area: status;
+  justify-self: end;
+  white-space: nowrap;
 }
 
 .project-icon {
@@ -489,8 +511,9 @@ main {
 }
 
 .project-title {
-  font-size: 1.22rem;
+  font-size: 1.15rem;
   font-weight: 800;
+  line-height: 1.2;
   letter-spacing: -0.01em;
   text-wrap: balance;
 }
@@ -529,12 +552,12 @@ main {
 }
 
 .tag {
-  padding: 0.22rem 0.55rem;
+  padding: 0.18rem 0.5rem;
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--text-faint);
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
 }
 
 .links {
