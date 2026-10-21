@@ -1,30 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@xhvsh</title>
-    <link rel="icon" type="image/x-icon" href="./img/pfp.webp" />
+    <meta name="description" content="xhvsh. Projects, links and everything else in one place." />
+    <link rel="icon" type="image/webp" href="./img/pfp.webp" />
 
     <!-- silly discord stuff -->
     <meta property="og:title" content="blehhh :3" />
+    <meta property="og:description" content="Projects, links and everything else in one place." />
     <meta property="og:image" content="https://xhvsh.github.io/img/big-blehh.gif" />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#6018c4" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#000000" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300..800&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+
+    <script src="https://kit.fontawesome.com/384138011e.js" crossorigin="anonymous"></script>
+    <script>
+      document.documentElement.classList.replace("no-js", "js");
+    </script>
     <link rel="stylesheet" href="./style.css" />
     <script src="./script.js" defer></script>
   </head>
   <body>
-    <main class="container">
-      <section class="profile" aria-label="xhvsh profile">
-        <img src="./img/pfp.webp" alt="xhvsh profile picture" />
-        <h1>xhvsh</h1>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap bar">
+        <a class="brand" href="./">
+          <img src="./img/pfp.webp" alt="" width="1440" height="1440" />
+          <span>xhvsh</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#projects">Projects</a>
+          <a href="#socials">Socials</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <section class="hero">
+        <div class="hero-avatar reveal" style="transition-delay: 0ms">
+          <img src="./img/pfp.webp" alt="xhvsh profile picture" width="1440" height="1440" />
+        </div>
+        <h1 class="reveal" data-text="xhvsh" style="transition-delay: 60ms">xhvsh</h1>
+        <p class="hero-lede reveal" style="transition-delay: 120ms">
+          Projects and links, all in one place.
+        </p>
+        <div class="hero-actions reveal" style="transition-delay: 180ms">
+          <a class="btn btn-primary" href="#projects">
+            <span>View projects</span>
+            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn-ghost" href="#socials">
+            <span>Socials</span>
+          </a>
+        </div>
       </section>
 
-      <nav class="links" aria-label="social links"></nav>
+      <section class="section" id="projects">
+        <div class="section-head reveal">
+          <span class="section-kicker">~/projects</span>
+          <h2>Projects</h2>
+          <p class="section-note">Things I build and keep online.</p>
+        </div>
+        <div class="project-grid" id="project-grid"></div>
+      </section>
+
+      <section class="section" id="socials">
+        <div class="section-head reveal">
+          <span class="section-kicker">~/socials</span>
+          <h2>Socials</h2>
+          <p class="section-note">Everywhere else to find me.</p>
+        </div>
+        <div class="links" id="links-grid"></div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <span class="mono footer-note">looking for hire, contact me</span>
+        <span class="mono footer-copy">© <span class="js-year">2026</span> xhvsh</span>
+      </div>
+    </footer>
   </body>
 </html>
