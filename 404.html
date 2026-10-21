@@ -3,35 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 | @xhvsh</title>
-    <link rel="icon" type="image/x-icon" href="/img/pfp.webp" />
-    <meta name="theme-color" content="#6018c4" />
+    <title>404 | xhvsh</title>
+    <meta name="description" content="This page does not exist. Head back to the homepage." />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/webp" href="/img/pfp.webp" />
+    <meta name="theme-color" content="#000000" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300..800&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
     <link rel="stylesheet" href="/404.css" />
     <script src="/404.js" defer></script>
   </head>
   <body>
-    <main class="container">
-      <section class="not-found" aria-labelledby="page-title">
-        <a class="profile-link" href="./" aria-label="Go to xhvsh homepage">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap bar">
+        <a class="brand" href="/">
           <img src="/img/pfp.webp" alt="" aria-hidden="true" />
-          <span>xhvsh</span>
+          xhvsh
         </a>
+        <nav class="site-nav" aria-label="Pages">
+          <a href="/">Home</a>
+          <a href="/#projects">Projects</a>
+          <a href="/#socials">Socials</a>
+        </nav>
+      </div>
+    </header>
 
-        <div class="columns" aria-label="404">
-          <div class="column" aria-hidden="true"></div>
-          <div class="column" aria-hidden="true"></div>
-          <div class="column" aria-hidden="true"></div>
+    <main id="main" class="wrap">
+      <section class="missing" aria-labelledby="missing-title">
+        <p class="kicker mono" aria-hidden="true">~/404</p>
+
+        <div class="slot" role="img" aria-label="404">
+          <div class="column" data-count="30" data-digit="4" aria-hidden="true"></div>
+          <div class="column" data-count="50" data-digit="0" aria-hidden="true"></div>
+          <div class="column" data-count="70" data-digit="4" aria-hidden="true"></div>
+          <span class="slot-fallback" aria-hidden="true">404</span>
         </div>
 
-        <div class="copy">
-          <h1 id="page-title"><span>Page</span> <span>not</span> <span>found</span></h1>
-        </div>
+        <h1 id="missing-title" data-text="Page not found">Page not found</h1>
+        <p class="lede">The page you were looking for drifted off into the void.</p>
+        <p class="path mono">$ cat <span id="path">/lost-page/</span><span class="path-err">: no such page</span></p>
 
-        <div class="actions" aria-label="404 actions">
-          <a class="button primary" href="/"><span>Go home</span></a>
+        <div class="actions">
+          <a class="btn btn-primary" href="/">Back home</a>
+          <button class="btn btn-ghost" type="button" id="respin">Spin again</button>
         </div>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <span class="footer-note">error 404: page not found</span>
+        <span class="footer-copy">© <span id="year">2026</span> xhvsh</span>
+      </div>
+    </footer>
   </body>
 </html>
