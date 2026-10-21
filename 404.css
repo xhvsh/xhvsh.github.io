@@ -186,10 +186,9 @@ main {
 
 .slot {
   position: relative;
-  width: min(100%, 440px);
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(0.2rem, 2vw, 0.75rem);
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.3rem, 1vw, 0.45rem);
   overflow: hidden;
   font-size: clamp(5.5rem, 26vw, 11rem);
   line-height: 1;
@@ -197,6 +196,7 @@ main {
 }
 
 .column {
+  width: 0.68em;
   height: 1em;
   display: flex;
   flex-direction: column;
