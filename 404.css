@@ -313,6 +313,44 @@ h1::after {
   animation: glitch-animation-2 2.6s linear infinite alternate-reverse;
 }
 
+h1.burst {
+  animation: h1-burst-skew 0.55s steps(7) both;
+}
+
+h1.burst::before {
+  animation: h1-burst-1 0.55s steps(7) both;
+}
+
+h1.burst::after {
+  animation: h1-burst-2 0.55s steps(7) both;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.022) 0px,
+    rgba(255, 255, 255, 0.022) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.grain {
+  position: fixed;
+  inset: -6%;
+  z-index: 111;
+  pointer-events: none;
+  opacity: 0.05;
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  animation: grain-shift 1.1s steps(6) infinite;
+}
+
 .lede {
   max-width: 40ch;
   color: var(--text-dim);
@@ -542,6 +580,113 @@ h1::after {
   .footer-inner {
     justify-content: center;
     text-align: center;
+  }
+}
+
+@keyframes grain-shift {
+  0% {
+    translate: 0% 0%;
+  }
+  16% {
+    translate: -4% 3%;
+  }
+  33% {
+    translate: 5% -2%;
+  }
+  50% {
+    translate: -3% -4%;
+  }
+  66% {
+    translate: 3% 4%;
+  }
+  83% {
+    translate: -5% 1%;
+  }
+  100% {
+    translate: 0% 0%;
+  }
+}
+
+@keyframes h1-burst-1 {
+  0% {
+    clip-path: inset(0% 0 58% 0);
+    translate: -7px 1px;
+  }
+  14% {
+    clip-path: inset(42% 0 8% 0);
+    translate: 9px -2px;
+  }
+  28% {
+    clip-path: inset(66% 0 2% 0);
+    translate: -10px 1px;
+  }
+  42% {
+    clip-path: inset(20% 0 52% 0);
+    translate: 8px 2px;
+  }
+  57% {
+    clip-path: inset(4% 0 74% 0);
+    translate: -6px 0;
+  }
+  71% {
+    clip-path: inset(55% 0 18% 0);
+    translate: 10px -1px;
+  }
+  85% {
+    clip-path: inset(30% 0 46% 0);
+    translate: -5px 1px;
+  }
+  100% {
+    clip-path: inset(0% 0 0% 0);
+    translate: 3px 0;
+  }
+}
+
+@keyframes h1-burst-2 {
+  0% {
+    clip-path: inset(58% 0 0 0);
+    translate: 7px -1px;
+  }
+  14% {
+    clip-path: inset(8% 0 44% 0);
+    translate: -9px 2px;
+  }
+  28% {
+    clip-path: inset(2% 0 68% 0);
+    translate: 10px -1px;
+  }
+  42% {
+    clip-path: inset(52% 0 22% 0);
+    translate: -8px -2px;
+  }
+  57% {
+    clip-path: inset(74% 0 4% 0);
+    translate: 6px 0;
+  }
+  71% {
+    clip-path: inset(18% 0 56% 0);
+    translate: -10px 1px;
+  }
+  85% {
+    clip-path: inset(46% 0 30% 0);
+    translate: 5px -1px;
+  }
+  100% {
+    clip-path: inset(0% 0 0% 0);
+    translate: -3px 0;
+  }
+}
+
+@keyframes h1-burst-skew {
+  0%,
+  100% {
+    transform: none;
+  }
+  30% {
+    transform: translate(2px, -1px) skewX(1.5deg);
+  }
+  62% {
+    transform: translate(-3px, 1px) skewX(-1.6deg);
   }
 }
 

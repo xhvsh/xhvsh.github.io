@@ -105,3 +105,70 @@ function spin() {
 
 respin.addEventListener("click", spin);
 spin();
+
+const CIPHER = "01<>/\\[]{}#$%&*+-=~?";
+
+function scrambleText(el, motionOK, duration) {
+  if (!el || !motionOK || el.dataset.scrambling === "1") return;
+  el.dataset.scrambling = "1";
+  const final = Array.from(el.textContent);
+  const start = performance.now();
+  const run = (now) => {
+    const t = (now - start) / duration;
+    if (t >= 1) {
+      el.textContent = final.join("");
+      el.removeAttribute("data-scrambling");
+      return;
+    }
+    const reveal = Math.floor(t * final.length);
+    let out = "";
+    for (let i = 0; i < final.length; i++) {
+      const ch = final[i];
+      out += i < reveal || ch === " " ? ch : CIPHER[(Math.random() * CIPHER.length) | 0];
+    }
+    el.textContent = out;
+    requestAnimationFrame(run);
+  };
+  requestAnimationFrame(run);
+}
+
+[
+  [document.querySelector(".kicker"), 380],
+  [document.querySelector(".lede"), 620],
+].forEach(([el, delay]) => {
+  setTimeout(() => scrambleText(el, !reducedClock, 850), delay);
+});
+
+setInterval(() => {
+  scrambleText(document.querySelector(".kicker"), !reducedClock, 450);
+}, 10000);
+
+const missingTitle = document.getElementById("missing-title");
+if (missingTitle && !reducedClock) {
+  const fireBurst = () => {
+    missingTitle.classList.add("burst");
+    setTimeout(() => missingTitle.classList.remove("burst"), 560);
+    setTimeout(fireBurst, 3800 + Math.random() * 4200);
+  };
+  setTimeout(fireBurst, 2600 + Math.random() * 2600);
+}
+
+function buildGrainTile() {
+  const tile = document.createElement("canvas");
+  tile.width = tile.height = 128;
+  const ctx = tile.getContext("2d");
+  const data = ctx.createImageData(128, 128);
+  const px = data.data;
+  for (let i = 0; i < px.length; i += 4) {
+    px[i] = px[i + 1] = px[i + 2] = 255;
+    px[i + 3] = Math.random() < 0.85 ? 0 : 14 + Math.random() * 40;
+  }
+  ctx.putImageData(data, 0, 0);
+  return tile.toDataURL();
+}
+
+const grain = document.createElement("div");
+grain.className = "grain";
+grain.setAttribute("aria-hidden", "true");
+grain.style.backgroundImage = `url(${buildGrainTile()})`;
+document.body.appendChild(grain);
