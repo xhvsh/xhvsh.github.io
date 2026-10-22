@@ -473,6 +473,7 @@ body::after {
   }
 
   .footer-inner {
+    flex-direction: column;
     justify-content: center;
     text-align: center;
   }

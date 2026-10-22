@@ -893,6 +893,7 @@ html.js .reveal.is-visible {
   }
 
   .footer-inner {
+    flex-direction: column;
     justify-content: center;
     text-align: center;
   }
