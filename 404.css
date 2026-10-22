@@ -299,18 +299,17 @@ h1::after {
   pointer-events: none;
   color: var(--text);
   text-shadow: none;
+  display: none;
 }
 
 h1::before {
   translate: 3px 0;
   text-shadow: -2px 0 var(--accent-1);
-  animation: glitch-animation-1 2.6s linear infinite alternate-reverse;
 }
 
 h1::after {
   translate: -3px 0;
   text-shadow: -2px 0 var(--accent-2);
-  animation: glitch-animation-2 2.6s linear infinite alternate-reverse;
 }
 
 h1.burst {
@@ -318,10 +317,12 @@ h1.burst {
 }
 
 h1.burst::before {
+  display: block;
   animation: h1-burst-1 0.55s steps(7) both;
 }
 
 h1.burst::after {
+  display: block;
   animation: h1-burst-2 0.55s steps(7) both;
 }
 
