@@ -149,35 +149,13 @@ function fireTitleBurst() {
   setTimeout(() => missingTitle.classList.remove("burst"), 560);
 }
 
-const slotGhosts = "#$%&/[]{}<>?!*+=";
-
-function corruptLayerGlyphs() {
-  slot.querySelectorAll(".glitch-layer span").forEach((s) => {
-    s.textContent = slotGhosts[(Math.random() * slotGhosts.length) | 0];
-  });
-}
-
-function restoreLayerGlyphs() {
-  "404".split("").forEach((ch, i) => {
-    const spans = slot.querySelectorAll(".glitch-layer span");
-    spans[i].textContent = ch;
-    spans[i + 3].textContent = ch;
-  });
-}
-
 function fireSlotBurst() {
   const settled = performance.now() >= spinUntil;
   slot.classList.remove("glitch-on");
   void slot.offsetWidth;
   slot.classList.add("burst");
-  if (settled) {
-    slot.classList.add("glitch-on");
-    corruptLayerGlyphs();
-  }
-  setTimeout(() => {
-    slot.classList.remove("burst", "glitch-on");
-    restoreLayerGlyphs();
-  }, 560);
+  if (settled) slot.classList.add("glitch-on");
+  setTimeout(() => slot.classList.remove("burst", "glitch-on"), 560);
 }
 
 function scheduleGlitch() {
