@@ -219,7 +219,6 @@ main {
   display: flex;
   justify-content: center;
   gap: clamp(0.3rem, 1vw, 0.45rem);
-  background: #000000;
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
@@ -259,31 +258,12 @@ main {
 }
 
 .slot.burst {
-  filter: drop-shadow(-2px 0 rgba(174, 53, 255, 0.6))
-    drop-shadow(2px 0 rgba(38, 49, 255, 0.6));
+  filter: drop-shadow(-2px 0 rgba(174, 53, 255, 0.5))
+    drop-shadow(2px 0 rgba(38, 49, 255, 0.5));
 }
 
-.slot.burst {
-  animation: slot-burst 0.55s steps(7) both;
-}
-
-@keyframes slot-burst {
-  0%,
-  100% {
-    transform: none;
-  }
-  25% {
-    transform: translate(-3px, 1px);
-  }
-  45% {
-    transform: translate(4px, -2px);
-  }
-  70% {
-    transform: translate(-2px, 2px);
-  }
-  90% {
-    transform: translate(3px, -1px);
-  }
+.slot.burst.glitch-on {
+  filter: none;
 }
 
 html:not(.js) .glitch-layer {
