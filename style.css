@@ -66,7 +66,27 @@ html {
   color-scheme: dark;
   scroll-behavior: smooth;
   scroll-padding-top: 78px;
+  scrollbar-width: none;
   -webkit-text-size-adjust: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  z-index: 120;
+  background: var(--accent-grad);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
 }
 
 body {
@@ -114,8 +134,7 @@ main {
   left: 1rem;
   z-index: 100;
   padding: 0.55rem 0.95rem;
-  border-radius: 9px;
-  background: #fff;
+  border-radius: 9px;background: #fff;
   color: #000;
   font-size: 0.88rem;
   font-weight: 700;

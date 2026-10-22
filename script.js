@@ -152,6 +152,19 @@ document.body.appendChild(grain);
 
 const heroTitle = document.querySelector(".hero h1");
 
+const progress = document.createElement("div");
+progress.className = "scroll-progress";
+document.body.appendChild(progress);
+
+const updateProgress = () => {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = max > 0 ? Math.min(Number(window.scrollY) / max, 1) : 0;
+  progress.style.transform = `scaleX(${pct.toFixed(4)})`;
+};
+window.addEventListener("scroll", updateProgress, { passive: true });
+window.addEventListener("resize", updateProgress);
+updateProgress();
+
 function fireTitleBurst() {
   if (!heroTitle) return;
   heroTitle.classList.add("burst");
