@@ -74,7 +74,7 @@ if (clockEl) {
 }
 
 function spin() {
-  spinUntil = performance.now() + 6000;
+  spinUntil = performance.now() + 3100;
   slot.classList.remove("glitch-on");
   columns.forEach((column, index) => {
     const count = Number(column.dataset.count);
