@@ -852,6 +852,10 @@ html.js .reveal.is-visible {
 }
 
 @media (max-width: 780px) {
+  .scroll-progress {
+    display: none;
+  }
+
   .links {
     grid-template-columns: repeat(4, 1fr);
   }
