@@ -148,9 +148,9 @@ if (missingTitle && !reducedClock) {
   const fireBurst = () => {
     missingTitle.classList.add("burst");
     setTimeout(() => missingTitle.classList.remove("burst"), 560);
-    setTimeout(fireBurst, 3800 + Math.random() * 4200);
+    setTimeout(fireBurst, 1800 + Math.random() * 1600);
   };
-  setTimeout(fireBurst, 2600 + Math.random() * 2600);
+  setTimeout(fireBurst, 1200 + Math.random() * 1200);
 }
 
 function buildGrainTile() {
