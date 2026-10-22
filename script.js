@@ -130,16 +130,6 @@ setInterval(() => {
   scrambleText(kickers[(Math.random() * kickers.length) | 0], !reducedMotion, 520);
 }, 11000);
 
-const heroTitle = document.querySelector(".hero h1");
-if (heroTitle && !reducedMotion) {
-  const fireBurst = () => {
-    heroTitle.classList.add("burst");
-    setTimeout(() => heroTitle.classList.remove("burst"), 560);
-    setTimeout(fireBurst, 1800 + Math.random() * 1600);
-  };
-  setTimeout(fireBurst, 1200 + Math.random() * 1200);
-}
-
 function buildGrainTile() {
   const tile = document.createElement("canvas");
   tile.width = tile.height = 128;
@@ -160,16 +150,24 @@ grain.setAttribute("aria-hidden", "true");
 grain.style.backgroundImage = `url(${buildGrainTile()})`;
 document.body.appendChild(grain);
 
+const heroTitle = document.querySelector(".hero h1");
+
+function fireTitleBurst() {
+  if (!heroTitle) return;
+  heroTitle.classList.add("burst");
+  setTimeout(() => heroTitle.classList.remove("burst"), 560);
+}
+
 function avatarGlitch() {
   const holder = document.querySelector(".hero-avatar");
   const img = holder && holder.querySelector("img");
-  if (!holder || !img || reducedMotion) return;
+  if (!holder || !img || reducedMotion) return null;
   const canvas = document.createElement("canvas");
   canvas.className = "avatar-fx";
   canvas.setAttribute("aria-hidden", "true");
   holder.appendChild(canvas);
   const ctx = canvas.getContext("2d");
-  if (!ctx) return;
+  if (!ctx) return null;
   const frame = document.createElement("canvas");
   const fctx = frame.getContext("2d");
   let channels = [];
@@ -221,7 +219,7 @@ function avatarGlitch() {
 
   const burst = () => {
     if (!channels.length) {
-      setTimeout(burst, 2000);
+      setTimeout(burst, 900);
       return;
     }
     const w = canvas.width;
@@ -239,6 +237,9 @@ function avatarGlitch() {
       fctx.globalCompositeOperation = "lighter";
       fctx.clearRect(0, 0, w, h);
       fctx.drawImage(channels[0], -split, jy());
+      fctx.globalAlpha = 0.65;
+      fctx.drawImage(channels[2], -split * 0.55, jy());
+      fctx.globalAlpha = 1;
       fctx.drawImage(channels[1], 0, 0);
       fctx.drawImage(channels[2], split, jy());
       ctx.clearRect(0, 0, w, h);
@@ -270,15 +271,21 @@ function avatarGlitch() {
       requestAnimationFrame(run);
     };
     requestAnimationFrame(run);
+    return true;
   };
 
-  const scheduleBursts = () => {
-    setTimeout(() => {
-      burst();
-      scheduleBursts();
-    }, 4200 + Math.random() * 4200);
-  };
-  scheduleBursts();
+  return burst;
 }
 
-avatarGlitch();
+const avatarBurst = avatarGlitch();
+
+function scheduleGlitch() {
+  setTimeout(() => {
+    fireTitleBurst();
+    if (avatarBurst && !reducedMotion) avatarBurst();
+    scheduleGlitch();
+  }, 1800 + Math.random() * 1600);
+}
+if (heroTitle || avatarBurst) {
+  scheduleGlitch();
+}

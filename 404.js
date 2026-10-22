@@ -6,7 +6,7 @@ const pathEl = document.getElementById("path");
 const yearEl = document.getElementById("year");
 const respin = document.getElementById("respin");
 const clockEl = document.getElementById("clock");
-let glitchTimer = 0;
+let spinUntil = 0;
 
 pathEl.textContent = location.pathname === "/" ? "/lost-page/" : location.pathname;
 yearEl.textContent = new Date().getFullYear();
@@ -74,7 +74,7 @@ if (clockEl) {
 }
 
 function spin() {
-  clearTimeout(glitchTimer);
+  spinUntil = performance.now() + 6000;
   slot.classList.remove("glitch-on");
   columns.forEach((column, index) => {
     const count = Number(column.dataset.count);
@@ -99,8 +99,6 @@ function spin() {
       column.style.transform = `translateY(calc(-${show} * 1em))`;
     }, 80 + index * 280);
   });
-
-  glitchTimer = setTimeout(() => slot.classList.add("glitch-on"), 3800);
 }
 
 respin.addEventListener("click", spin);
@@ -144,14 +142,30 @@ setInterval(() => {
 }, 10000);
 
 const missingTitle = document.getElementById("missing-title");
-if (missingTitle && !reducedClock) {
-  const fireBurst = () => {
-    missingTitle.classList.add("burst");
-    setTimeout(() => missingTitle.classList.remove("burst"), 560);
-    setTimeout(fireBurst, 1800 + Math.random() * 1600);
-  };
-  setTimeout(fireBurst, 1200 + Math.random() * 1200);
+
+function fireTitleBurst() {
+  if (!missingTitle) return;
+  missingTitle.classList.add("burst");
+  setTimeout(() => missingTitle.classList.remove("burst"), 560);
 }
+
+function fireSlotBurst() {
+  const settled = performance.now() >= spinUntil;
+  slot.classList.remove("glitch-on");
+  void slot.offsetWidth;
+  slot.classList.add("burst");
+  if (settled) slot.classList.add("glitch-on");
+  setTimeout(() => slot.classList.remove("burst", "glitch-on"), 560);
+}
+
+function scheduleGlitch() {
+  setTimeout(() => {
+    fireTitleBurst();
+    fireSlotBurst();
+    scheduleGlitch();
+  }, 1800 + Math.random() * 1600);
+}
+if (!reducedClock) scheduleGlitch();
 
 function buildGrainTile() {
   const tile = document.createElement("canvas");
