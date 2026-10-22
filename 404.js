@@ -1,4 +1,6 @@
 document.documentElement.classList.add("js");
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+window.scrollTo(0, 0);
 
 const columns = [...document.querySelectorAll(".column")];
 const slot = document.querySelector(".slot");
