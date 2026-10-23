@@ -8,6 +8,19 @@ document.querySelectorAll(".js-year").forEach((el) => {
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+const workshopTag = document.getElementById("workshop-tag");
+const workshopCount = document.getElementById("workshop-count");
+if (workshopTag && workshopCount) {
+  fetch("/api/workshop")
+    .then((r) => (r.ok ? r.json() : null))
+    .then((data) => {
+      if (!data || typeof data.subscribers !== "number") return;
+      workshopCount.textContent = data.subscribers.toLocaleString("en-US");
+      workshopTag.hidden = false;
+    })
+    .catch(() => {});
+}
+
 const clockEl = document.getElementById("clock");
 if (clockEl) {
   const pre = clockEl.appendChild(document.createElement("span"));
