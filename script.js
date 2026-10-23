@@ -22,14 +22,12 @@ if (workshopTag && workshopCount) {
 }
 
 const vsStats = document.getElementById("vs-stats");
-const vsUsers = document.getElementById("vs-users");
 const vsAccounts = document.getElementById("vs-accounts");
-if (vsStats && vsUsers && vsAccounts) {
+if (vsStats && vsAccounts) {
   fetch("/valorant-shop/api/stats")
     .then((r) => (r.ok ? r.json() : null))
     .then((data) => {
       if (!data || !data.ok) return;
-      if (typeof data.users === "number") vsUsers.textContent = data.users.toLocaleString("en-US");
       if (typeof data.accounts === "number") vsAccounts.textContent = data.accounts.toLocaleString("en-US");
       vsStats.hidden = false;
     })

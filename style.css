@@ -564,11 +564,6 @@ body::after {
   background: var(--panel-hover);
 }
 
-.project:hover .project-icon {
-  border-color: rgba(255, 255, 255, 0.24);
-  background: rgba(255, 255, 255, 0.08);
-}
-
 .project-head {
   display: grid;
   grid-template-columns: 44px minmax(0, 1fr);
