@@ -689,11 +689,12 @@ body::after {
 }
 
 .workshop-count {
-  margin-top: -0.35rem;
+  margin-top: -0.25rem;
   font-family: var(--mono);
   font-size: 0.72rem;
   letter-spacing: 0.02em;
   color: var(--text-faint);
+  white-space: nowrap;
 }
 
 .workshop-count strong {

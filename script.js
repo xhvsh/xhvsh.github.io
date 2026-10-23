@@ -21,6 +21,21 @@ if (workshopTag && workshopCount) {
     .catch(() => {});
 }
 
+const vsStats = document.getElementById("vs-stats");
+const vsUsers = document.getElementById("vs-users");
+const vsAccounts = document.getElementById("vs-accounts");
+if (vsStats && vsUsers && vsAccounts) {
+  fetch("/valorant-shop/api/stats")
+    .then((r) => (r.ok ? r.json() : null))
+    .then((data) => {
+      if (!data || !data.ok) return;
+      if (typeof data.users === "number") vsUsers.textContent = data.users.toLocaleString("en-US");
+      if (typeof data.accounts === "number") vsAccounts.textContent = data.accounts.toLocaleString("en-US");
+      vsStats.hidden = false;
+    })
+    .catch(() => {});
+}
+
 const clockEl = document.getElementById("clock");
 if (clockEl) {
   const pre = clockEl.appendChild(document.createElement("span"));
