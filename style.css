@@ -688,6 +688,17 @@ body::after {
   gap: 0.35rem;
 }
 
+.workshop-count {
+  color: var(--text-faint);
+  font-size: 0.82rem;
+}
+
+.workshop-count strong {
+  color: var(--text);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
 .tag {
   padding: 0.18rem 0.5rem;
   border: 1px solid var(--line);
