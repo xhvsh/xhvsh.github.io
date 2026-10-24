@@ -66,8 +66,27 @@ html {
   color-scheme: dark;
   scroll-behavior: smooth;
   scroll-padding-top: 78px;
+  scrollbar-gutter: stable;
 
   -webkit-text-size-adjust: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 
