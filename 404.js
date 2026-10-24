@@ -5,13 +5,14 @@ window.scrollTo(0, 0);
 const columns = [...document.querySelectorAll(".column")];
 const slot = document.querySelector(".slot");
 const pathEl = document.getElementById("path");
-const yearEl = document.getElementById("year");
 const respin = document.getElementById("respin");
 const clockEl = document.getElementById("clock");
 let spinUntil = 0;
 
 pathEl.textContent = location.pathname === "/" ? "/lost-page/" : location.pathname;
-yearEl.textContent = new Date().getFullYear();
+document.querySelectorAll(".js-year").forEach((el) => {
+  el.textContent = String(new Date().getFullYear());
+});
 
 const reducedClock = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

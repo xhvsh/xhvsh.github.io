@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@xhvsh</title>
+    <title>xhvsh</title>
     <meta name="description" content="xhvsh. Projects, links and everything else in one place." />
     <link rel="icon" type="image/webp" href="./img/pfp.webp" />
+    <link rel="icon" href="./img/pfp.webp" />
 
     <!-- silly discord stuff -->
     <meta property="og:title" content="blehhh :3" />
@@ -21,8 +22,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
       href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300..800&family=JetBrains+Mono:wght@400;500;700&display=swap"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300..800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      />
+    </noscript>
 
     <script defer src="https://kit.fontawesome.com/384138011e.js" crossorigin="anonymous"></script>
     <script>
@@ -47,7 +56,7 @@
     <main id="main" class="wrap">
       <section class="hero">
         <div class="hero-avatar reveal" style="transition-delay: 0ms">
-          <img src="./img/pfp.webp" alt="xhvsh profile picture" width="1440" height="1440" />
+          <img src="./img/pfp.webp" alt="xhvsh profile picture" width="1440" height="1440" loading="lazy" />
         </div>
         <h1 class="reveal" data-text="xhvsh" style="transition-delay: 60ms">xhvsh</h1>
         <p class="hero-lede reveal" style="transition-delay: 120ms">
@@ -74,7 +83,7 @@
           <article class="project reveal">
             <div class="project-head">
               <span class="project-icon">
-                <img src="https://xhv.sh/valorant-shop/logo.png" alt="" aria-hidden="true" loading="lazy" />
+                <img src="./img/valorant-shop-logo.png" alt="" aria-hidden="true" loading="lazy" />
               </span>
               <h3 class="project-title">Valorant Shop</h3>
               <div class="tags"><span class="tag">Discord app</span><span class="tag">Valorant</span></div>

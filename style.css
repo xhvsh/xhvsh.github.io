@@ -66,28 +66,10 @@ html {
   color-scheme: dark;
   scroll-behavior: smooth;
   scroll-padding-top: 78px;
-  scrollbar-width: none;
+
   -webkit-text-size-adjust: 100%;
 }
 
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  display: none;
-}
-
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  z-index: 120;
-  background: var(--accent-grad);
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  pointer-events: none;
-}
 
 body {
   min-height: 100dvh;
@@ -837,9 +819,6 @@ html.js .reveal.is-visible {
 }
 
 @media (max-width: 780px) {
-  .scroll-progress {
-    display: none;
-  }
 
   .links {
     grid-template-columns: repeat(4, 1fr);

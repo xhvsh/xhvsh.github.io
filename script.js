@@ -1,5 +1,6 @@
 if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 window.scrollTo(0, 0);
+window.addEventListener("pageshow", () => window.scrollTo(0, 0));
 
 const year = String(new Date().getFullYear());
 document.querySelectorAll(".js-year").forEach((el) => {
@@ -180,19 +181,8 @@ grain.style.backgroundImage = `url(${buildGrainTile()})`;
 document.body.appendChild(grain);
 
 const heroTitle = document.querySelector(".hero h1");
+if (heroTitle) heroTitle.dataset.text = heroTitle.textContent;
 
-const progress = document.createElement("div");
-progress.className = "scroll-progress";
-document.body.appendChild(progress);
-
-const updateProgress = () => {
-  const max = document.documentElement.scrollHeight - window.innerHeight;
-  const pct = max > 0 ? Math.min(Number(window.scrollY) / max, 1) : 0;
-  progress.style.transform = `scaleX(${pct.toFixed(4)})`;
-};
-window.addEventListener("scroll", updateProgress, { passive: true });
-window.addEventListener("resize", updateProgress);
-updateProgress();
 
 function fireTitleBurst() {
   if (!heroTitle) return;
