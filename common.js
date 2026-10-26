@@ -86,37 +86,38 @@ if (clockEl) {
   setInterval(() => setTime(true), 1000);
 }
 
-// text scramble: the real text stays in an sr-only span so screen readers never read the noise
+// text scramble: the noise is drawn on an aria-hidden overlay while the real text stays in
+// place (transparent), so the layout never reflows and screen readers never read the noise
 
 const CIPHER = "01<>/\\[]{}#$%&*+-=~?";
 const scrambleTargets = new WeakMap();
 
 function scrambleTarget(el) {
-  let visual = scrambleTargets.get(el);
-  if (visual) return visual;
-  const text = el.textContent.trim().replace(/\s+/g, " ");
+  let fx = scrambleTargets.get(el);
+  if (fx) return fx;
   const real = document.createElement("span");
-  real.className = "sr-only";
-  real.textContent = text;
-  visual = document.createElement("span");
-  visual.setAttribute("aria-hidden", "true");
-  visual.textContent = text;
-  el.replaceChildren(real, visual);
-  scrambleTargets.set(el, visual);
-  return visual;
+  real.className = "scramble-real";
+  real.textContent = el.textContent.trim().replace(/\s+/g, " ");
+  fx = document.createElement("span");
+  fx.className = "scramble-fx";
+  fx.setAttribute("aria-hidden", "true");
+  el.replaceChildren(real, fx);
+  el.classList.add("scramble");
+  scrambleTargets.set(el, fx);
+  return fx;
 }
 
 function scrambleText(el, duration) {
-  if (!el || reducedMotion || el.dataset.scrambling === "1") return;
-  const visual = scrambleTarget(el);
-  el.dataset.scrambling = "1";
-  const final = Array.from(visual.textContent);
+  if (!el || reducedMotion || el.classList.contains("is-scrambling")) return;
+  const fx = scrambleTarget(el);
+  el.classList.add("is-scrambling");
+  const final = Array.from(el.querySelector(".scramble-real").textContent);
   const start = performance.now();
   const run = (now) => {
     const t = (now - start) / duration;
     if (t >= 1) {
-      visual.textContent = final.join("");
-      el.removeAttribute("data-scrambling");
+      fx.textContent = "";
+      el.classList.remove("is-scrambling");
       return;
     }
     const reveal = Math.floor(t * final.length);
@@ -125,7 +126,7 @@ function scrambleText(el, duration) {
       const ch = final[i];
       out += i < reveal || ch === " " ? ch : CIPHER[(Math.random() * CIPHER.length) | 0];
     }
-    visual.textContent = out;
+    fx.textContent = out;
     requestAnimationFrame(run);
   };
   requestAnimationFrame(run);

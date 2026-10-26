@@ -90,13 +90,24 @@ a {
   font-family: var(--mono);
 }
 
-.sr-only {
+.scramble {
+  position: relative;
+}
+
+.scramble-fx {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  inset: 0;
+  display: none;
   overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
+  pointer-events: none;
+}
+
+.scramble.is-scrambling .scramble-real {
+  color: transparent;
+}
+
+.scramble.is-scrambling .scramble-fx {
+  display: block;
 }
 
 .icon {
