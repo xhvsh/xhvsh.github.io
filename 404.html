@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,9 +13,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
       href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300..800&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@700&display=swap"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@300..800&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@700&display=swap"
+      />
+    </noscript>
+
+    <script>
+      document.documentElement.classList.replace("no-js", "js");
+    </script>
+    <link rel="stylesheet" href="/base.css" />
     <link rel="stylesheet" href="/404.css" />
+    <script src="/common.js" defer></script>
     <script src="/404.js" defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V22NYBDCRH"></script>
@@ -32,7 +46,7 @@
     <header class="site-header">
       <div class="wrap bar">
         <a class="brand" href="/">
-          <img src="/img/pfp.webp" alt="" aria-hidden="true" />
+          <img src="/img/pfp.webp" alt="" aria-hidden="true" width="30" height="30" />
           xhv.sh
         </a>
         <span class="clock mono" id="clock" aria-hidden="true"></span>
@@ -41,7 +55,7 @@
 
     <main id="main" class="wrap">
       <section class="missing" aria-labelledby="missing-title">
-        <p class="kicker mono" aria-hidden="true">~/404</p>
+        <p class="kicker mono">~/404</p>
 
         <div class="slot" role="img" aria-label="404">
           <div class="column" data-count="30" data-digit="4" aria-hidden="true"></div>
@@ -52,21 +66,31 @@
           <span class="slot-fallback" aria-hidden="true">404</span>
         </div>
 
-        <h1 id="missing-title" data-text="Page not found">Page not found</h1>
+        <h1 id="missing-title" class="glitch-title">Page not found</h1>
         <p class="lede">Searching for a page that doesn't exist?</p>
         <p class="path mono">$ cat <span id="path">/lost-page/</span><span class="path-err">: no such page</span></p>
 
         <div class="actions">
           <a class="btn btn-primary" href="/">Back home</a>
-          <button class="btn btn-ghost" type="button" id="respin">Spin again</button>
+          <button class="btn btn-ghost js-only" type="button" id="respin">Spin again</button>
         </div>
+
+        <nav class="suggest mono" aria-label="Elsewhere on the site">
+          <span>try</span>
+          <a href="/#projects">~/projects</a>
+          <a href="/#socials">~/socials</a>
+        </nav>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <span class="mono footer-note">looking for hire, contact me</span>
-        <span class="footer-copy">© <span class="js-year">2026</span> xhvsh</span>
+        <span class="footer-note">
+          open to work, <a href="https://discord.com/users/1301345826143997954" target="_blank" rel="noopener noreferrer">message me</a>
+        </span>
+        <span class="footer-copy">
+          © <span class="js-year">2026</span> xhvsh
+        </span>
       </div>
     </footer>
   </body>

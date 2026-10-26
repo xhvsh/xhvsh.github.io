@@ -4,13 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>xhvsh</title>
-    <meta name="description" content="xhvsh. Projects, links and everything else in one place." />
+    <meta name="description" content="xhvsh. I build Discord bots, web apps and Minecraft plugins. Projects, links and everything else in one place." />
+    <link rel="canonical" href="https://xhv.sh/" />
     <link rel="icon" type="image/x-icon" href="./img/pfp.ico" />
 
     <!-- silly discord stuff -->
     <meta property="og:title" content="xhvsh" />
     <meta property="og:description" content="Projects, links and everything else in one place." />
-    <meta property="og:image" content="https://xhvsh.github.io/img/big-blehh.gif" />
+    <meta property="og:url" content="https://xhv.sh/" />
+    <meta property="og:site_name" content="xhv.sh" />
+    <meta property="og:image" content="https://xhv.sh/img/big-blehh.gif" />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
     <meta property="og:type" content="website" />
@@ -32,11 +35,12 @@
       />
     </noscript>
 
-    <script defer src="https://kit.fontawesome.com/384138011e.js" crossorigin="anonymous"></script>
     <script>
       document.documentElement.classList.replace("no-js", "js");
     </script>
+    <link rel="stylesheet" href="./base.css" />
     <link rel="stylesheet" href="./style.css" />
+    <script src="./common.js" defer></script>
     <script src="./script.js" defer></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V22NYBDCRH"></script>
@@ -48,12 +52,24 @@
     </script>
   </head>
   <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 5v14M5 12l7 7 7-7" />
+      </symbol>
+      <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
+      </symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 6l6 6-6 6" />
+      </symbol>
+    </svg>
+
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header">
       <div class="wrap bar">
         <a class="brand" href="./">
-          <img src="./img/pfp.webp" alt="" aria-hidden="true" />
+          <img src="./img/pfp.webp" alt="" aria-hidden="true" width="30" height="30" />
           xhv.sh
         </a>
         <span class="clock mono" id="clock" aria-hidden="true"></span>
@@ -63,16 +79,16 @@
     <main id="main" class="wrap">
       <section class="hero">
         <div class="hero-avatar reveal" style="transition-delay: 0ms">
-          <img src="./img/pfp.webp" alt="xhvsh profile picture" width="1440" height="1440" loading="lazy" />
+          <img src="./img/pfp.webp" alt="xhvsh profile picture" width="1440" height="1440" fetchpriority="high" />
         </div>
-        <h1 class="reveal" data-text="xhvsh" style="transition-delay: 60ms">xhvsh</h1>
+        <h1 class="glitch-title reveal" style="transition-delay: 60ms">xhvsh</h1>
         <p class="hero-lede reveal" style="transition-delay: 120ms">
-          Projects and links, all in one place.
+          I build Discord bots, web apps and Minecraft plugins. Here's what's live and where to find me.
         </p>
         <div class="hero-actions reveal" style="transition-delay: 180ms">
           <a class="btn btn-primary" href="#projects">
             <span>View projects</span>
-            <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-down" /></svg>
           </a>
           <a class="btn btn-ghost" href="#socials">
             <span>Socials</span>
@@ -90,7 +106,7 @@
           <article class="project reveal">
             <div class="project-head">
               <span class="project-icon">
-                <img src="./img/valorant-shop-logo.png" alt="" aria-hidden="true" loading="lazy" />
+                <img src="./img/valorant-shop.webp" alt="" aria-hidden="true" width="44" height="44" loading="lazy" />
               </span>
               <h3 class="project-title">Valorant Shop</h3>
               <div class="tags"><span class="tag">Discord app</span><span class="tag">Valorant</span></div>
@@ -105,8 +121,8 @@
             </p>
             <div class="project-actions">
               <a class="project-link" href="https://xhv.sh/valorant-shop" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span>Website</span>
-                <i class="fa-solid fa-chevron-right project-link-end" aria-hidden="true"></i>
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg><span>Website</span>
+                <svg class="icon project-link-end" aria-hidden="true"><use href="#i-chevron" /></svg>
               </a>
             </div>
           </article>
@@ -114,7 +130,7 @@
           <article class="project reveal">
             <div class="project-head">
               <span class="project-icon">
-                <img src="https://miaucraft.vercel.app/img/icon.webp" alt="" aria-hidden="true" loading="lazy" />
+                <img src="./img/miaucraft.webp" alt="" aria-hidden="true" width="44" height="44" loading="lazy" />
               </span>
               <h3 class="project-title">Miaucraft</h3>
               <div class="tags"><span class="tag">Minecraft</span><span class="tag">Live map</span></div>
@@ -126,12 +142,12 @@
             </p>
             <div class="project-actions">
               <a class="project-link" href="https://miaucraft.vercel.app" target="_blank" rel="noopener noreferrer">
-                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span>Website</span>
-                <i class="fa-solid fa-chevron-right project-link-end" aria-hidden="true"></i>
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg><span>Website</span>
+                <svg class="icon project-link-end" aria-hidden="true"><use href="#i-chevron" /></svg>
               </a>
               <a class="project-link" href="https://github.com/xhvsh/miaucraft" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-github" aria-hidden="true"></i><span>Repo</span>
-                <i class="fa-solid fa-chevron-right project-link-end" aria-hidden="true"></i>
+                <img class="icon" src="./img/github.webp" alt="" aria-hidden="true" width="14" height="14" loading="lazy" /><span>Repo</span>
+                <svg class="icon project-link-end" aria-hidden="true"><use href="#i-chevron" /></svg>
               </a>
             </div>
           </article>
@@ -139,7 +155,7 @@
           <article class="project reveal">
             <div class="project-head">
               <span class="project-icon">
-                <img src="https://orteil.dashnet.org/cookieclicker/img/perfectCookie.png" alt="" aria-hidden="true" loading="lazy" />
+                <img src="./img/xhclicker.webp" alt="" aria-hidden="true" width="44" height="44" loading="lazy" />
               </span>
               <h3 class="project-title">xhClicker</h3>
               <div class="tags"><span class="tag">Cookie Clicker</span><span class="tag">Mod</span></div>
@@ -154,12 +170,12 @@
             </p>
             <div class="project-actions">
               <a class="project-link" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3738413378" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-steam" aria-hidden="true"></i><span>Workshop</span>
-                <i class="fa-solid fa-chevron-right project-link-end" aria-hidden="true"></i>
+                <img class="icon" src="./img/steam.webp" alt="" aria-hidden="true" width="14" height="14" loading="lazy" /><span>Workshop</span>
+                <svg class="icon project-link-end" aria-hidden="true"><use href="#i-chevron" /></svg>
               </a>
               <a class="project-link" href="https://github.com/xhvsh/xhclicker" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-github" aria-hidden="true"></i><span>Repo</span>
-                <i class="fa-solid fa-chevron-right project-link-end" aria-hidden="true"></i>
+                <img class="icon" src="./img/github.webp" alt="" aria-hidden="true" width="14" height="14" loading="lazy" /><span>Repo</span>
+                <svg class="icon project-link-end" aria-hidden="true"><use href="#i-chevron" /></svg>
               </a>
             </div>
           </article>
@@ -173,51 +189,51 @@
           <p class="section-note">Everywhere else to find me.</p>
         </div>
         <div class="links">
-          <a class="media reveal" href="https://discord.com/users/1301345826143997954" target="_blank" rel="noopener noreferrer" aria-label="Discord" style="--media-bg: linear-gradient(135deg, var(--discord-light) 0%, var(--discord-dark) 100%);">
+          <a class="media reveal" href="https://discord.com/users/1301345826143997954" target="_blank" rel="noopener noreferrer" style="--media-bg: linear-gradient(135deg, var(--discord-light) 0%, var(--discord-dark) 100%);">
             <img src="./img/discord.webp" alt="" aria-hidden="true" loading="lazy" />
             <span class="media-name">Discord</span>
           </a>
-          <a class="media reveal" href="https://instagram.com/xxhvsh" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="--media-bg: linear-gradient(135deg, var(--instagram-light) 0%, var(--instagram-extra) 50%, var(--instagram-dark) 100%);">
+          <a class="media reveal" href="https://instagram.com/xxhvsh" target="_blank" rel="noopener noreferrer" style="--media-bg: linear-gradient(135deg, var(--instagram-light) 0%, var(--instagram-extra) 50%, var(--instagram-dark) 100%);">
             <img src="./img/instagram.webp" alt="" aria-hidden="true" loading="lazy" />
             <span class="media-name">Instagram</span>
           </a>
-          <a class="media reveal" href="https://medal.tv/u/xhvsh" target="_blank" rel="noopener noreferrer" aria-label="Medal" style="--media-bg: linear-gradient(135deg, var(--medal-light) 0%, var(--medal-dark) 100%);">
+          <a class="media reveal" href="https://medal.tv/u/xhvsh" target="_blank" rel="noopener noreferrer" style="--media-bg: linear-gradient(135deg, var(--medal-light) 0%, var(--medal-dark) 100%);">
             <img src="./img/medal.webp" alt="" aria-hidden="true" loading="lazy" />
             <span class="media-name">Medal</span>
           </a>
-          <a class="media reveal" href="https://youtube.com/@xhvsh" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="--media-bg: linear-gradient(135deg, var(--youtube-light) 0%, var(--youtube-dark) 100%);">
+          <a class="media reveal" href="https://youtube.com/@xhvsh" target="_blank" rel="noopener noreferrer" style="--media-bg: linear-gradient(135deg, var(--youtube-light) 0%, var(--youtube-dark) 100%);">
             <img src="./img/youtube.webp" alt="" aria-hidden="true" loading="lazy" />
             <span class="media-name">YouTube</span>
           </a>
-          <a class="media reveal" href="https://twitch.tv/xhvsh_" target="_blank" rel="noopener noreferrer" aria-label="Twitch" style="--media-bg: linear-gradient(135deg, var(--twitch-light) 0%, var(--twitch-dark) 100%);">
+          <a class="media reveal" href="https://twitch.tv/xhvsh_" target="_blank" rel="noopener noreferrer" style="--media-bg: linear-gradient(135deg, var(--twitch-light) 0%, var(--twitch-dark) 100%);">
             <img src="./img/twitch.webp" alt="" aria-hidden="true" loading="lazy" />
             <span class="media-name">Twitch</span>
           </a>
-          <a class="media reveal" href="https://github.com/xhvsh" target="_blank" rel="noopener noreferrer" aria-label="GitHub" style="--media-bg: linear-gradient(135deg, var(--github-light) 0%, var(--github-dark) 100%);">
+          <a class="media reveal" href="https://github.com/xhvsh" target="_blank" rel="noopener noreferrer" style="--media-bg: linear-gradient(135deg, var(--github-light) 0%, var(--github-dark) 100%);">
             <img src="./img/github.webp" alt="" aria-hidden="true" loading="lazy" />
             <span class="media-name">GitHub</span>
           </a>
-          <a class="media reveal" href="https://t.me/xxhvsh" target="_blank" rel="noopener noreferrer" aria-label="Telegram" style="--media-bg: linear-gradient(135deg, var(--telegram-light) 0%, var(--telegram-dark) 100%);">
+          <a class="media reveal" href="https://t.me/xxhvsh" target="_blank" rel="noopener noreferrer" style="--media-bg: linear-gradient(135deg, var(--telegram-light) 0%, var(--telegram-dark) 100%);">
             <img src="./img/telegram.webp" alt="" aria-hidden="true" loading="lazy" />
             <span class="media-name">Telegram</span>
           </a>
-          <a class="media reveal" href="https://steamcommunity.com/id/xhvsh" target="_blank" rel="noopener noreferrer" aria-label="Steam" style="--media-bg: linear-gradient(135deg, var(--steam-light) 0%, var(--steam-dark) 100%);">
+          <a class="media reveal" href="https://steamcommunity.com/id/xhvsh" target="_blank" rel="noopener noreferrer" style="--media-bg: linear-gradient(135deg, var(--steam-light) 0%, var(--steam-dark) 100%);">
             <img src="./img/steam.webp" alt="" aria-hidden="true" loading="lazy" />
             <span class="media-name">Steam</span>
           </a>
-          <a class="media reveal" href="https://open.spotify.com/user/31eexkmyghhfiomdqy7ejvuchkqa" target="_blank" rel="noopener noreferrer" aria-label="Spotify" style="--media-bg: linear-gradient(135deg, var(--spotify-light) 0%, var(--spotify-dark) 100%);">
+          <a class="media reveal" href="https://open.spotify.com/user/31eexkmyghhfiomdqy7ejvuchkqa" target="_blank" rel="noopener noreferrer" style="--media-bg: linear-gradient(135deg, var(--spotify-light) 0%, var(--spotify-dark) 100%);">
             <img src="./img/spotify.webp" alt="" aria-hidden="true" loading="lazy" />
             <span class="media-name">Spotify</span>
           </a>
-          <a class="media reveal" href="https://tiktok.com/@xhvsh_" target="_blank" rel="noopener noreferrer" aria-label="TikTok" style="--media-bg: linear-gradient(120deg, rgba(0, 242, 234, 0.95) 0%, rgba(0, 242, 234, 0.3) 30%, rgba(0, 0, 0, 0) 55%, rgba(254, 44, 85, 0.3) 72%, rgba(254, 44, 85, 0.95) 100%), linear-gradient(#0d0d11, #0d0d11);">
+          <a class="media reveal" href="https://tiktok.com/@xhvsh_" target="_blank" rel="noopener noreferrer" style="--media-bg: linear-gradient(120deg, rgba(0, 242, 234, 0.95) 0%, rgba(0, 242, 234, 0.3) 30%, rgba(0, 0, 0, 0) 55%, rgba(254, 44, 85, 0.3) 72%, rgba(254, 44, 85, 0.95) 100%), linear-gradient(#0d0d11, #0d0d11);">
             <img src="./img/tiktok.webp" alt="" aria-hidden="true" loading="lazy" />
             <span class="media-name">TikTok</span>
           </a>
-          <a class="media reveal" href="https://namemc.com/xhvsh" target="_blank" rel="noopener noreferrer" aria-label="NameMC" style="--media-bg: linear-gradient(135deg, var(--namemc-light) 0%, var(--namemc-dark) 100%);">
-            <img src="./img/namemc.webp" alt="" aria-hidden="true" loading="lazy" />
+          <a class="media reveal" href="https://namemc.com/xhvsh" target="_blank" rel="noopener noreferrer" style="--media-bg: linear-gradient(135deg, var(--namemc-light) 0%, var(--namemc-dark) 100%);">
+            <img class="media-icon-sm" src="./img/namemc.webp" alt="" aria-hidden="true" loading="lazy" />
             <span class="media-name">NameMC</span>
           </a>
-          <a class="media reveal" href="https://modrinth.com/user/xhvsh" target="_blank" rel="noopener noreferrer" aria-label="Modrinth" style="--media-bg: linear-gradient(135deg, var(--modrinth-light) 0%, var(--modrinth-dark) 100%);">
+          <a class="media reveal" href="https://modrinth.com/user/xhvsh" target="_blank" rel="noopener noreferrer" style="--media-bg: linear-gradient(135deg, var(--modrinth-light) 0%, var(--modrinth-dark) 100%);">
             <img src="./img/modrinth.webp" alt="" aria-hidden="true" loading="lazy" />
             <span class="media-name">Modrinth</span>
           </a>
@@ -227,8 +243,12 @@
 
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <span class="mono footer-note">looking for hire, contact me</span>
-        <span class="mono footer-copy">© <span class="js-year">2026</span> xhvsh</span>
+        <span class="footer-note">
+          open to work, <a href="https://discord.com/users/1301345826143997954" target="_blank" rel="noopener noreferrer">message me</a>
+        </span>
+        <span class="footer-copy">
+          © <span class="js-year">2026</span> xhvsh
+        </span>
       </div>
     </footer>
   </body>

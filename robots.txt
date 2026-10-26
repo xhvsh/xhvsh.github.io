@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://xhvsh.github.io/sitemap.xml
+Sitemap: https://xhv.sh/sitemap.xml

@@ -1,13 +1,6 @@
-if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-window.scrollTo(0, 0);
-window.addEventListener("pageshow", () => window.scrollTo(0, 0));
-
-const year = String(new Date().getFullYear());
-document.querySelectorAll(".js-year").forEach((el) => {
-  el.textContent = year;
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted && !location.hash) window.scrollTo(0, 0);
 });
-
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const workshopTag = document.getElementById("workshop-tag");
 const workshopCount = document.getElementById("workshop-count");
@@ -35,76 +28,6 @@ if (vsStats && vsAccounts) {
     .catch(() => {});
 }
 
-const clockEl = document.getElementById("clock");
-if (clockEl) {
-  const pre = clockEl.appendChild(document.createElement("span"));
-  pre.className = "clock-side";
-  pre.textContent = "it's";
-  const strip = clockEl.appendChild(document.createElement("span"));
-  strip.className = "digit-strip";
-  const post = clockEl.appendChild(document.createElement("span"));
-  post.className = "clock-side";
-  post.textContent = "for me";
-
-  const digits = [];
-  for (let i = 0; i < 8; i++) {
-    const slot = strip.appendChild(document.createElement("span"));
-    slot.className = "digit-slot";
-    const reel = document.createElement("span");
-    reel.className = "digit-reel";
-    const cur = document.createElement("span");
-    const next = document.createElement("span");
-    reel.append(cur, next);
-    slot.append(reel);
-    digits.push({ cur, next, reel, anim: null });
-  }
-
-  const timeChars = () =>
-    new Date().toLocaleTimeString("en-GB", {
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-      hour12: false,
-      timeZone: "Europe/Warsaw",
-    }).split("");
-
-  const setDigit = (d, ch, animate) => {
-    if (d.cur.textContent === ch) return;
-    if (d.anim) d.anim.finish();
-    if (animate && !reducedMotion) {
-      d.next.textContent = ch;
-      d.anim = d.reel.animate(
-        [{ transform: "translateY(0)" }, { transform: "translateY(-1em)" }],
-        { duration: 340, easing: "cubic-bezier(0.33, 1, 0.68, 1)" },
-      );
-      d.anim.onfinish = () => {
-        d.cur.textContent = d.next.textContent;
-        d.next.textContent = "";
-        d.anim = null;
-      };
-    } else {
-      d.cur.textContent = ch;
-    }
-  };
-
-  const setTime = (animate) => {
-    const chars = timeChars();
-    chars.forEach((ch, i) => setDigit(digits[i], ch, animate));
-  };
-
-  setTime(false);
-  setInterval(() => setTime(true), 1000);
-}
-
-document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach((link) => {
-  link.addEventListener("click", (event) => {
-    const target = document.querySelector(link.getAttribute("href"));
-    if (!target) return;
-    event.preventDefault();
-    target.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
-  });
-});
-
 const revealElements = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window && !reducedMotion) {
@@ -125,70 +48,17 @@ if ("IntersectionObserver" in window && !reducedMotion) {
   revealElements.forEach((el) => el.classList.add("is-visible"));
 }
 
-const CIPHER = "01<>/\\[]{}#$%&*+-=~?";
-
-function scrambleText(el, motionOK, duration) {
-  if (!el || !motionOK || el.dataset.scrambling === "1") return;
-  el.dataset.scrambling = "1";
-  const final = Array.from(el.textContent);
-  const start = performance.now();
-  const run = (now) => {
-    const t = (now - start) / duration;
-    if (t >= 1) {
-      el.textContent = final.join("");
-      el.removeAttribute("data-scrambling");
-      return;
-    }
-    const reveal = Math.floor(t * final.length);
-    let out = "";
-    for (let i = 0; i < final.length; i++) {
-      const ch = final[i];
-      out += i < reveal || ch === " " ? ch : CIPHER[(Math.random() * CIPHER.length) | 0];
-    }
-    el.textContent = out;
-    requestAnimationFrame(run);
-  };
-  requestAnimationFrame(run);
-}
-
 [...document.querySelectorAll(".hero-lede, .section-kicker")].forEach((el, i) => {
-  setTimeout(() => scrambleText(el, !reducedMotion, 900), 420 + i * 150);
+  setTimeout(() => scrambleText(el, 900), 420 + i * 150);
 });
 
 setInterval(() => {
+  if (document.hidden) return;
   const kickers = document.querySelectorAll(".section-kicker");
-  scrambleText(kickers[(Math.random() * kickers.length) | 0], !reducedMotion, 520);
+  scrambleText(kickers[(Math.random() * kickers.length) | 0], 520);
 }, 11000);
 
-function buildGrainTile() {
-  const tile = document.createElement("canvas");
-  tile.width = tile.height = 128;
-  const ctx = tile.getContext("2d");
-  const data = ctx.createImageData(128, 128);
-  const px = data.data;
-  for (let i = 0; i < px.length; i += 4) {
-    px[i] = px[i + 1] = px[i + 2] = 255;
-    px[i + 3] = Math.random() < 0.85 ? 0 : 14 + Math.random() * 40;
-  }
-  ctx.putImageData(data, 0, 0);
-  return tile.toDataURL();
-}
-
-const grain = document.createElement("div");
-grain.className = "grain";
-grain.setAttribute("aria-hidden", "true");
-grain.style.backgroundImage = `url(${buildGrainTile()})`;
-document.body.appendChild(grain);
-
 const heroTitle = document.querySelector(".hero h1");
-if (heroTitle) heroTitle.dataset.text = heroTitle.textContent;
-
-
-function fireTitleBurst() {
-  if (!heroTitle) return;
-  heroTitle.classList.add("burst");
-  setTimeout(() => heroTitle.classList.remove("burst"), 560);
-}
 
 function avatarGlitch() {
   const holder = document.querySelector(".hero-avatar");
@@ -250,10 +120,7 @@ function avatarGlitch() {
   window.addEventListener("resize", resizeDebounced);
 
   const burst = () => {
-    if (!channels.length) {
-      setTimeout(burst, 900);
-      return;
-    }
+    if (!channels.length) return;
     const w = canvas.width;
     const h = canvas.height;
     const start = performance.now();
@@ -303,7 +170,6 @@ function avatarGlitch() {
       requestAnimationFrame(run);
     };
     requestAnimationFrame(run);
-    return true;
   };
 
   return burst;
@@ -311,13 +177,7 @@ function avatarGlitch() {
 
 const avatarBurst = avatarGlitch();
 
-function scheduleGlitch() {
-  setTimeout(() => {
-    fireTitleBurst();
-    if (avatarBurst && !reducedMotion) avatarBurst();
-    scheduleGlitch();
-  }, 1800 + Math.random() * 1600);
-}
-if (heroTitle || avatarBurst) {
-  scheduleGlitch();
-}
+scheduleGlitch(() => {
+  burstTitle(heroTitle);
+  if (avatarBurst) avatarBurst();
+});
