@@ -2,6 +2,25 @@ window.addEventListener("pageshow", (event) => {
   if (event.persisted && !location.hash) window.scrollTo(0, 0);
 });
 
+// section links scroll without putting #projects / #socials in the url
+document.querySelectorAll('a[href^="#"]:not(.skip-link)').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const target = document.querySelector(link.getAttribute("href"));
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
+  });
+});
+
+// deep links (e.g. /#projects from the 404 page) still land on the section, then the hash is dropped
+if (location.hash) {
+  window.addEventListener("load", () => {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target) target.scrollIntoView({ behavior: "instant" });
+    history.replaceState(null, "", location.pathname + location.search);
+  });
+}
+
 const workshopTag = document.getElementById("workshop-tag");
 const workshopCount = document.getElementById("workshop-count");
 if (workshopTag && workshopCount) {
