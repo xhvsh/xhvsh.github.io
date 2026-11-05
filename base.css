@@ -10,7 +10,7 @@
   --accent-1: #ae35ff;
   --accent-2: #2631ff;
   --accent-grad: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-  --focus: rgba(174, 53, 255, 0.55);
+  --focus: #c98bff;
   --ease: cubic-bezier(0.33, 1, 0.68, 1);
 
   --radius: 14px;
@@ -255,7 +255,11 @@ main {
 }
 
 .btn-primary:focus-visible {
-  box-shadow: 0 12px 30px rgba(96, 24, 196, 0.45);
+  filter: brightness(1.15);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .btn-ghost:focus-visible {
@@ -269,7 +273,7 @@ main {
   }
 
   .btn-primary:hover {
-    box-shadow: 0 12px 30px rgba(96, 24, 196, 0.45);
+    filter: brightness(1.15);
   }
 
   .btn-ghost:hover {
@@ -349,11 +353,6 @@ body::after {
   opacity: 0.05;
   background-repeat: repeat;
   background-size: 128px 128px;
-  animation: grain-shift 1.1s steps(6) infinite;
-}
-
-html.tab-hidden .grain {
-  animation-play-state: paused;
 }
 
 /* footer */
@@ -386,7 +385,6 @@ html.tab-hidden .grain {
   height: 7px;
   border-radius: 50%;
   background: #3ddc84;
-  box-shadow: 0 0 8px rgba(61, 220, 132, 0.7);
 }
 
 .footer-note a {
@@ -424,30 +422,6 @@ html:not(.js) .js-only {
 @media (max-width: 400px) {
   .clock .clock-tz {
     display: none;
-  }
-}
-
-@keyframes grain-shift {
-  0% {
-    translate: 0% 0%;
-  }
-  16% {
-    translate: -4% 3%;
-  }
-  33% {
-    translate: 5% -2%;
-  }
-  50% {
-    translate: -3% -4%;
-  }
-  66% {
-    translate: 3% 4%;
-  }
-  83% {
-    translate: -5% 1%;
-  }
-  100% {
-    translate: 0% 0%;
   }
 }
 

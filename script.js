@@ -67,15 +67,10 @@ if ("IntersectionObserver" in window && !reducedMotion) {
   revealElements.forEach((el) => el.classList.add("is-visible"));
 }
 
-[...document.querySelectorAll(".hero-lede, .section-kicker")].forEach((el, i) => {
-  setTimeout(() => scrambleText(el, 900), 420 + i * 150);
+// kickers decode once on load; the lede stays readable immediately
+[...document.querySelectorAll(".section-kicker")].forEach((el, i) => {
+  setTimeout(() => scrambleText(el, 700), 420 + i * 150);
 });
-
-setInterval(() => {
-  if (document.hidden) return;
-  const kickers = document.querySelectorAll(".section-kicker");
-  scrambleText(kickers[(Math.random() * kickers.length) | 0], 520);
-}, 11000);
 
 const heroTitle = document.querySelector(".hero h1");
 

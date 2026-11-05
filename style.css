@@ -255,6 +255,7 @@
   display: flex;
   align-items: center;
   gap: 0.55rem;
+  min-height: 44px;
   padding: 0.62rem 0.85rem;
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -296,6 +297,11 @@
 .project-link:focus-visible .project-link-end {
   color: var(--text);
   translate: 2px 0;
+}
+
+.project-link:active,
+.media:active {
+  transform: scale(0.98);
 }
 
 /* socials */
@@ -411,7 +417,7 @@
 
 @media (hover: none) {
   .media::before {
-    opacity: 0.22;
+    opacity: 0.14;
   }
 
   .media-name {
