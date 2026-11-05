@@ -47,7 +47,26 @@ if (vsStats && vsAccounts) {
     .catch(() => {});
 }
 
-const revealElements = document.querySelectorAll(".reveal");
+// miaucraft player count: public players table, anon (publishable) key, count only
+const mcStats = document.getElementById("mc-stats");
+const mcPlayers = document.getElementById("mc-players");
+if (mcStats && mcPlayers) {
+  const sb = "https://qxgpsutkthtuejjrnywg.supabase.co/rest/v1";
+  const key = "sb_publishable_PxAxkWvN8EEiOt_MOSzMqA_ZmRG4oqF";
+  fetch(`${sb}/players?select=id&hidden=eq.false&merged_into=is.null`, {
+    method: "HEAD",
+    headers: { apikey: key, Authorization: `Bearer ${key}`, Prefer: "count=exact" },
+  })
+    .then((r) => {
+      const total = r.ok ? Number((r.headers.get("content-range") || "").split("/")[1]) : NaN;
+      if (!Number.isFinite(total)) return;
+      mcPlayers.textContent = total.toLocaleString("en-US");
+      mcStats.hidden = false;
+    })
+    .catch(() => {});
+}
+
+const revealElements =document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window && !reducedMotion) {
   const observer = new IntersectionObserver(
