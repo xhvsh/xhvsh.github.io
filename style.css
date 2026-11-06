@@ -70,8 +70,8 @@
 .hero h1 {
   font-size: clamp(2.9rem, 11vw, 4.75rem);
   line-height: 1.02;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  letter-spacing: -0.05em;
   text-wrap: balance;
 }
 
@@ -114,12 +114,11 @@
 }
 
 .section-head h2 {
-  font-size: clamp(1.9rem, 5vw, 2.6rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  text-wrap: balance;
-  text-shadow: -1px -0.6px rgba(174, 53, 255, 0.3), 1px 0.6px rgba(38, 49, 255, 0.3);
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
 }
 
 .section-note {
@@ -192,9 +191,9 @@
 
 .project-title {
   font-size: 1.15rem;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
