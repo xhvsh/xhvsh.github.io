@@ -115,10 +115,10 @@
 
 .section-head h2 {
   color: var(--text-dim);
-  font-size: 0.95rem;
+  font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.4;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .section-note {
