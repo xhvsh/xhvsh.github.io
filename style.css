@@ -113,18 +113,11 @@
   margin-bottom: 1.5rem;
 }
 
-.section-kicker {
-  grid-column: 1 / -1;
-  color: var(--text-faint);
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
-}
-
 .section-head h2 {
-  font-size: clamp(1.6rem, 4vw, 2.05rem);
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
   text-wrap: balance;
   text-shadow: -1px -0.6px rgba(174, 53, 255, 0.3), 1px 0.6px rgba(38, 49, 255, 0.3);
 }
@@ -186,7 +179,7 @@
   width: 44px;
   height: 44px;
   border: 1px solid var(--line);
-  border-radius: 11px;
+  border-radius: 50%;
   background: rgba(255, 255, 255, 0.045);
   overflow: hidden;
 }
@@ -220,26 +213,25 @@
 }
 
 .tag {
-  padding: 0.16rem 0.5rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--text-faint);
-  font-family: var(--mono);
-  font-size: 0.72rem;
+  padding: 0.12rem 0.45rem;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .workshop-count {
   margin-top: 0.4rem;
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.02em;
+  font-size: 0.93rem;
   color: var(--text-faint);
   white-space: nowrap;
 }
 
 .workshop-count strong {
   color: var(--text);
-  font-weight: 700;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
 
