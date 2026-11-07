@@ -143,12 +143,53 @@ main {
 /* header */
 
 .site-header {
+  --fade: 44px;
   position: sticky;
   top: 0;
   z-index: 40;
-  background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.85) 60%, rgba(0, 0, 0, 0) 100%);
-  padding-bottom: 14px;
-  margin-bottom: -14px;
+  padding-bottom: var(--fade);
+  margin-bottom: calc(var(--fade) * -1);
+  pointer-events: none;
+}
+
+/* soft blur behind the header that fades out together with the tint */
+.site-header::before,
+.site-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.site-header::before {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+}
+
+/* eased fade instead of a linear one, so there's no visible edge */
+.site-header::after {
+  background: linear-gradient(
+    to bottom,
+    #000 56%,
+    rgba(0, 0, 0, 0.738) 64.4%,
+    rgba(0, 0, 0, 0.541) 71.0%,
+    rgba(0, 0, 0, 0.382) 76.7%,
+    rgba(0, 0, 0, 0.278) 80.9%,
+    rgba(0, 0, 0, 0.194) 84.6%,
+    rgba(0, 0, 0, 0.126) 88.1%,
+    rgba(0, 0, 0, 0.075) 91.3%,
+    rgba(0, 0, 0, 0.042) 93.9%,
+    rgba(0, 0, 0, 0.021) 96.0%,
+    rgba(0, 0, 0, 0.008) 97.9%,
+    rgba(0, 0, 0, 0.002) 99.2%,
+    rgba(0, 0, 0, 0) 100.0%
+  );
+}
+
+.site-header > * {
+  pointer-events: auto;
 }
 
 .bar {
