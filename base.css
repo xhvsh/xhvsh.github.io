@@ -253,22 +253,15 @@ main {
   font-size: 1.05rem;
 }
 
-/* round chip holding the arrow on the primary button */
-.btn-badge {
+/* clips the arrow so it can drop out and back in on hover */
+.btn-arrow {
   display: grid;
   place-items: center;
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-right: -0.45rem;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.18);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
   overflow: hidden;
-  transition: background-color 0.35s var(--ease);
 }
 
-.btn-badge .icon {
-  font-size: 0.9rem;
+.btn-arrow .icon {
+  font-size: 0.95rem;
 }
 
 .btn-primary {
@@ -316,11 +309,7 @@ main {
       0 12px 30px -10px rgba(174, 53, 255, 0.85);
   }
 
-  .btn-primary:hover .btn-badge {
-    background: rgba(255, 255, 255, 0.26);
-  }
-
-  .btn-primary:hover .btn-badge .icon {
+  .btn-primary:hover .btn-arrow .icon {
     animation: arrow-drop 0.6s var(--ease);
   }
 
