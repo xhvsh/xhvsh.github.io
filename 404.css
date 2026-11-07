@@ -121,10 +121,11 @@ html:not(.js) .slot-fallback {
 }
 
 h1 {
+  font-family: "Outfit", var(--sans);
   font-size: clamp(1.9rem, 6.5vw, 3rem);
   line-height: 1.05;
   font-weight: 600;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.025em;
   text-wrap: balance;
 }
 
