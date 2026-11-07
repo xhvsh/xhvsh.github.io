@@ -114,7 +114,7 @@
 }
 
 .section-head h2 {
-  color: var(--text-dim);
+  color: var(--text);
   font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.4;
@@ -416,22 +416,48 @@
   }
 }
 
-/* scroll reveal */
+/* scroll reveal: a top-down scan wipe with a short CRT-style flicker */
 
 html.js .reveal {
   opacity: 0;
-  translate: 0 16px;
-  transition:
-    opacity 0.55s ease,
-    translate 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
-    transform 0.3s var(--ease),
-    border-color 0.2s ease,
-    background-color 0.2s ease;
 }
 
 html.js .reveal.is-visible {
   opacity: 1;
-  translate: 0 0;
+  animation:
+    reveal-scan 0.6s cubic-bezier(0.65, 0, 0.35, 1) var(--d, 0ms) backwards,
+    reveal-flicker 0.6s linear var(--d, 0ms) backwards;
+}
+
+@keyframes reveal-scan {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes reveal-flicker {
+  0% {
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.9;
+  }
+  18% {
+    opacity: 0.25;
+  }
+  28% {
+    opacity: 1;
+  }
+  34% {
+    opacity: 0.6;
+  }
+  42%,
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 780px) {
@@ -446,11 +472,13 @@ html.js .reveal.is-visible {
   }
 
   .hero-actions {
+    flex-direction: column;
     width: 100%;
+    gap: 0.6rem;
   }
 
   .hero-actions .btn {
-    flex: 1;
+    width: 100%;
     justify-content: center;
   }
 
@@ -473,15 +501,11 @@ html.js .reveal.is-visible {
   .links {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .hero-actions {
-    flex-direction: column;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html.js .reveal {
     opacity: 1;
-    translate: 0 0;
+    animation: none;
   }
 }

@@ -66,17 +66,20 @@ if (mcStats && mcPlayers) {
     .catch(() => {});
 }
 
-const revealElements =document.querySelectorAll(".reveal");
+const revealElements = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window && !reducedMotion) {
   const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
+      // stagger elements that come into view together
+      entries
+        .filter((entry) => entry.isIntersecting)
+        .forEach((entry, i) => {
+          const el = entry.target;
+          if (!el.style.getPropertyValue("--d")) el.style.setProperty("--d", `${i * 55}ms`);
+          el.classList.add("is-visible");
+          observer.unobserve(el);
+        });
     },
     { threshold: 0.12, rootMargin: "0px 0px -5% 0px" },
   );
