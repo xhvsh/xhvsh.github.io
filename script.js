@@ -66,29 +66,6 @@ if (mcStats && mcPlayers) {
     .catch(() => {});
 }
 
-const revealElements = document.querySelectorAll(".reveal");
-
-if ("IntersectionObserver" in window && !reducedMotion) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      // stagger elements that come into view together
-      entries
-        .filter((entry) => entry.isIntersecting)
-        .forEach((entry, i) => {
-          const el = entry.target;
-          if (!el.style.getPropertyValue("--d")) el.style.setProperty("--d", `${i * 55}ms`);
-          el.classList.add("is-visible");
-          observer.unobserve(el);
-        });
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -5% 0px" },
-  );
-
-  revealElements.forEach((el) => observer.observe(el));
-} else {
-  revealElements.forEach((el) => el.classList.add("is-visible"));
-}
-
 // kickers decode once on load; the lede stays readable immediately
 [...document.querySelectorAll(".section-kicker")].forEach((el, i) => {
   setTimeout(() => scrambleText(el, 700), 420 + i * 150);
