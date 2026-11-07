@@ -143,7 +143,7 @@ main {
 /* header */
 
 .site-header {
-  --fade: 44px;
+  --fade: 56px;
   position: sticky;
   top: 0;
   z-index: 40;
@@ -164,27 +164,27 @@ main {
 .site-header::before {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 20%, transparent 90%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 20%, transparent 90%);
 }
 
-/* eased fade instead of a linear one, so there's no visible edge */
+/* eased fade that starts right at the top: no solid band, no visible edge */
 .site-header::after {
   background: linear-gradient(
     to bottom,
-    #000 56%,
-    rgba(0, 0, 0, 0.738) 64.4%,
-    rgba(0, 0, 0, 0.541) 71.0%,
-    rgba(0, 0, 0, 0.382) 76.7%,
-    rgba(0, 0, 0, 0.278) 80.9%,
-    rgba(0, 0, 0, 0.194) 84.6%,
-    rgba(0, 0, 0, 0.126) 88.1%,
-    rgba(0, 0, 0, 0.075) 91.3%,
-    rgba(0, 0, 0, 0.042) 93.9%,
-    rgba(0, 0, 0, 0.021) 96.0%,
-    rgba(0, 0, 0, 0.008) 97.9%,
-    rgba(0, 0, 0, 0.002) 99.2%,
-    rgba(0, 0, 0, 0) 100.0%
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.701) 19%,
+    rgba(0, 0, 0, 0.514) 34%,
+    rgba(0, 0, 0, 0.363) 47%,
+    rgba(0, 0, 0, 0.264) 56.5%,
+    rgba(0, 0, 0, 0.184) 65%,
+    rgba(0, 0, 0, 0.12) 73%,
+    rgba(0, 0, 0, 0.071) 80.2%,
+    rgba(0, 0, 0, 0.04) 86.1%,
+    rgba(0, 0, 0, 0.02) 91%,
+    rgba(0, 0, 0, 0.008) 95.2%,
+    rgba(0, 0, 0, 0.002) 98.2%,
+    rgba(0, 0, 0, 0.0) 100%
   );
 }
 
