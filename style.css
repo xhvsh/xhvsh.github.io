@@ -178,10 +178,15 @@
   place-items: center;
   width: 44px;
   height: 44px;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.045);
   overflow: hidden;
+}
+
+.project-icon-round {
+  border-radius: 50%;
+}
+
+.project-icon-soft {
+  border-radius: 8px;
 }
 
 .project-icon img {
