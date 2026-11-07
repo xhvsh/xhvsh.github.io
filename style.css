@@ -68,10 +68,11 @@
 }
 
 .hero h1 {
+  font-family: "Outfit", var(--sans);
   font-size: clamp(2.9rem, 11vw, 4.75rem);
   line-height: 1.02;
   font-weight: 600;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
   text-wrap: balance;
 }
 
