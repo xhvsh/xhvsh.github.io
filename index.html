@@ -46,12 +46,22 @@
     <script src="./common.js" defer></script>
     <script src="./script.js" defer></script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V22NYBDCRH"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-V22NYBDCRH');
+      // load the tag script only after the page has rendered, so it never competes with the page itself
+      window.addEventListener('load', function () {
+        var load = function () {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-V22NYBDCRH';
+          document.head.appendChild(s);
+        };
+        if ('requestIdleCallback' in window) requestIdleCallback(load, { timeout: 3000 });
+        else setTimeout(load, 1500);
+      });
     </script>
   </head>
   <body>

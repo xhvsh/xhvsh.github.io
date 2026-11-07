@@ -426,7 +426,7 @@
    fill-mode is backwards only so hover transforms work once it's done */
 
 html.js .reveal {
-  animation: load-fade 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 380ms) backwards;
+  animation: load-fade 0.5s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0ms) backwards;
 }
 
 html.js .hero .reveal {
